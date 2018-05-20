@@ -30,6 +30,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="images\" />
     <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
