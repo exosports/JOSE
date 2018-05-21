@@ -14,7 +14,6 @@ class test_optspecextr(unittest.TestCase):
         rightBound = 270
 
         varim = np.abs(frame1.data) / Q + rn**2
-        opspec1 = optspecextr(frame1.data, varim, rn, Q, leftBound, rightBound)
 
 
 if __name__ == '__main__':
