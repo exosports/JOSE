@@ -1,14 +1,10 @@
 import numpy as np
+import logging
+
+def fitbg(dataim, x1, x2, bgdeg, bgmask, bgres, bpct, bthresh, 
+          errvect, gotovect, inmask, nobgfit, plottype, q, 
+          skyvar, varim, verbose, v0):
+    '''docstring'''
 
 
-def fitbg(dataImage, x1, x2,):
-    dims = size(dataim)
-    nx = dims[1]
-    ny = dims[2]
-
-    bgdeg = 1
-    backgroundThreshold = 3
-    verbosityLevel = 0
-    plotType = [0,0,0,0]
-    gotovect = -1 #maybe replace with NONE
-    inmask = np.zeros(())
+    return None
