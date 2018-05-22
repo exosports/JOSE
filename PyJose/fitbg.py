@@ -7,5 +7,5 @@ def fitbg(dataim, x1, x2, bgdeg, bgmask, bgres, bpct, bthresh,
     '''docstring'''
 
 
-    bgim = np.loadtxt('tests/testData/fitbgData/bgim.csv', delimiter=',')
+
     return bgim
