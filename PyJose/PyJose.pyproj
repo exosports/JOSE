@@ -21,11 +21,18 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="extractfunc.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="fitbg.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="procvect.py" />
     <Compile Include="PyJose.py" />
     <Compile Include="optspecextr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\test_extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\test_fitbg.py">
@@ -38,6 +45,58 @@
   <ItemGroup>
     <Folder Include="images\" />
     <Folder Include="tests\" />
+    <Folder Include="tests\testData\" />
+    <Folder Include="tests\testData\extractfuncData\" />
+    <Folder Include="tests\testData\fitbgData\" />
+    <Folder Include="tests\testData\procvectData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="tests\testData\.test.csv.swp" />
+    <Content Include="tests\testData\extractfuncData\coeffv.csv" />
+    <Content Include="tests\testData\extractfuncData\datav.csv" />
+    <Content Include="tests\testData\extractfuncData\eval.csv" />
+    <Content Include="tests\testData\extractfuncData\opt.csv" />
+    <Content Include="tests\testData\extractfuncData\opvar.csv" />
+    <Content Include="tests\testData\extractfuncData\profv.csv" />
+    <Content Include="tests\testData\extractfuncData\varv.csv" />
+    <Content Include="tests\testData\extractfuncData\xvals.csv" />
+    <Content Include="tests\testData\fitbgData\bgdeg.csv" />
+    <Content Include="tests\testData\fitbgData\bgim.csv" />
+    <Content Include="tests\testData\fitbgData\bgmask.csv" />
+    <Content Include="tests\testData\fitbgData\bgres.csv" />
+    <Content Include="tests\testData\fitbgData\bthresh.csv" />
+    <Content Include="tests\testData\fitbgData\dataim.csv" />
+    <Content Include="tests\testData\fitbgData\errvect.csv" />
+    <Content Include="tests\testData\fitbgData\gotovect.csv" />
+    <Content Include="tests\testData\fitbgData\inmask.csv" />
+    <Content Include="tests\testData\fitbgData\plottype.csv" />
+    <Content Include="tests\testData\fitbgData\q.csv" />
+    <Content Include="tests\testData\fitbgData\skyvar.csv" />
+    <Content Include="tests\testData\fitbgData\v0.csv" />
+    <Content Include="tests\testData\fitbgData\varim.csv" />
+    <Content Include="tests\testData\fitbgData\verbose.csv" />
+    <Content Include="tests\testData\fitbgData\x1.csv" />
+    <Content Include="tests\testData\fitbgData\x2.csv" />
+    <Content Include="tests\testData\procvectData\bgv.csv" />
+    <Content Include="tests\testData\procvectData\bpct.csv" />
+    <Content Include="tests\testData\procvectData\crv.csv" />
+    <Content Include="tests\testData\procvectData\datav.csv" />
+    <Content Include="tests\testData\procvectData\errflag.csv" />
+    <Content Include="tests\testData\procvectData\extract.csv" />
+    <Content Include="tests\testData\procvectData\fiteval.csv" />
+    <Content Include="tests\testData\procvectData\func.csv" />
+    <Content Include="tests\testData\procvectData\maskv.csv" />
+    <Content Include="tests\testData\procvectData\multv.csv" />
+    <Content Include="tests\testData\procvectData\parm.csv" />
+    <Content Include="tests\testData\procvectData\plottype.csv" />
+    <Content Include="tests\testData\procvectData\q.csv" />
+    <Content Include="tests\testData\procvectData\skyvarv.csv" />
+    <Content Include="tests\testData\procvectData\thresh.csv" />
+    <Content Include="tests\testData\procvectData\v0.csv" />
+    <Content Include="tests\testData\procvectData\varv.csv" />
+    <Content Include="tests\testData\procvectData\vectnum.csv" />
+    <Content Include="tests\testData\procvectData\verbose.csv" />
+    <Content Include="tests\testData\procvectData\xvals.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

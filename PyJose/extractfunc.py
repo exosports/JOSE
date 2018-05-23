@@ -1,0 +1,6 @@
+
+def extractfunc():
+    '''docstring'''
+    pass
+
+
