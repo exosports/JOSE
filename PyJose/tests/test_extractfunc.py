@@ -24,12 +24,16 @@ class test_extractfunc(unittest.TestCase):
 
         datav = np.linspace(0, 10)
         varv = np.linspace(0, 10)
-        profv = np.zeros(size(varv)) #all bad pixels
+        profv = np.zeros(np.shape(varv)) #all bad pixels
         eval = None
         coeffv = None
 
 
-        results = extractfunc(xvals, datav, varv, profv, eval, coeffv, )
+        result, opvarResult = extractfunc(xvals, datav, varv, profv, eval, coeffv)
+
+        self.assertEqual(result, 0)
+        self.assertEqual(opvarResult, None)
+
 
 if __name__ == '__main__':
     unittest.main()
