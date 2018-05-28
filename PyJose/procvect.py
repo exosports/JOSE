@@ -1,4 +1,6 @@
 import numpy as np
 import logging
 
-def
+def procvect():
+    '''docstring'''
+    pass

@@ -44,6 +44,9 @@
     <Compile Include="tests\test_optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tests\test_procvect.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
@@ -82,16 +85,18 @@
     <Content Include="tests\testData\fitbgData\verbose.csv" />
     <Content Include="tests\testData\fitbgData\x1.csv" />
     <Content Include="tests\testData\fitbgData\x2.csv" />
-    <Content Include="tests\testData\procvectData\test_00\bgv.csv" />
+    <Content Include="tests\testData\procvectData\test_00\bcrv.csv" />
+    <Content Include="tests\testData\procvectData\test_00\bgRow.csv" />
     <Content Include="tests\testData\procvectData\test_00\bpct.csv" />
+    <Content Include="tests\testData\procvectData\test_00\bthresh.csv" />
     <Content Include="tests\testData\procvectData\test_00\crv.csv" />
     <Content Include="tests\testData\procvectData\test_00\datav.csv" />
     <Content Include="tests\testData\procvectData\test_00\errflag.csv" />
-    <Content Include="tests\testData\procvectData\test_00\extract.csv" />
     <Content Include="tests\testData\procvectData\test_00\fiteval.csv" />
     <Content Include="tests\testData\procvectData\test_00\func.csv" />
+    <Content Include="tests\testData\procvectData\test_00\i.csv" />
     <Content Include="tests\testData\procvectData\test_00\maskv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\multv.csv" />
+    <Content Include="tests\testData\procvectData\test_00\maskv_output.csv" />
     <Content Include="tests\testData\procvectData\test_00\parm.csv" />
     <Content Include="tests\testData\procvectData\test_00\plottype.csv" />
     <Content Include="tests\testData\procvectData\test_00\q.csv" />
@@ -99,18 +104,22 @@
     <Content Include="tests\testData\procvectData\test_00\thresh.csv" />
     <Content Include="tests\testData\procvectData\test_00\v0.csv" />
     <Content Include="tests\testData\procvectData\test_00\varv.csv" />
+    <Content Include="tests\testData\procvectData\test_00\varv_output.csv" />
     <Content Include="tests\testData\procvectData\test_00\vectnum.csv" />
     <Content Include="tests\testData\procvectData\test_00\verbose.csv" />
     <Content Include="tests\testData\procvectData\test_00\xvals.csv" />
     <Content Include="tests\testData\procvectData\test_01\bcrv.csv" />
     <Content Include="tests\testData\procvectData\test_01\bgRow.csv" />
+    <Content Include="tests\testData\procvectData\test_01\bpct.csv" />
     <Content Include="tests\testData\procvectData\test_01\bthresh.csv" />
     <Content Include="tests\testData\procvectData\test_01\crv.csv" />
     <Content Include="tests\testData\procvectData\test_01\datav.csv" />
+    <Content Include="tests\testData\procvectData\test_01\errflag.csv" />
     <Content Include="tests\testData\procvectData\test_01\fiteval.csv" />
     <Content Include="tests\testData\procvectData\test_01\func.csv" />
     <Content Include="tests\testData\procvectData\test_01\i.csv" />
     <Content Include="tests\testData\procvectData\test_01\maskv.csv" />
+    <Content Include="tests\testData\procvectData\test_01\maskv_output.csv" />
     <Content Include="tests\testData\procvectData\test_01\parm.csv" />
     <Content Include="tests\testData\procvectData\test_01\plottype.csv" />
     <Content Include="tests\testData\procvectData\test_01\q.csv" />
@@ -118,6 +127,7 @@
     <Content Include="tests\testData\procvectData\test_01\thresh.csv" />
     <Content Include="tests\testData\procvectData\test_01\v0.csv" />
     <Content Include="tests\testData\procvectData\test_01\varv.csv" />
+    <Content Include="tests\testData\procvectData\test_01\varv_output.csv" />
     <Content Include="tests\testData\procvectData\test_01\vectnum.csv" />
     <Content Include="tests\testData\procvectData\test_01\verbose.csv" />
     <Content Include="tests\testData\procvectData\test_01\xvals.csv" />
@@ -132,6 +142,7 @@
     <Content Include="tests\testData\procvectData\test_02\func.csv" />
     <Content Include="tests\testData\procvectData\test_02\i.csv" />
     <Content Include="tests\testData\procvectData\test_02\maskv.csv" />
+    <Content Include="tests\testData\procvectData\test_02\maskv_output.csv" />
     <Content Include="tests\testData\procvectData\test_02\parm.csv" />
     <Content Include="tests\testData\procvectData\test_02\plottype.csv" />
     <Content Include="tests\testData\procvectData\test_02\q.csv" />
@@ -139,6 +150,7 @@
     <Content Include="tests\testData\procvectData\test_02\thresh.csv" />
     <Content Include="tests\testData\procvectData\test_02\v0.csv" />
     <Content Include="tests\testData\procvectData\test_02\varv.csv" />
+    <Content Include="tests\testData\procvectData\test_02\varv_output.csv" />
     <Content Include="tests\testData\procvectData\test_02\vectnum.csv" />
     <Content Include="tests\testData\procvectData\test_02\verbose.csv" />
     <Content Include="tests\testData\procvectData\test_02\xvals.csv" />
