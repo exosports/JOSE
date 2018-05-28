@@ -27,6 +27,9 @@
     <Compile Include="fitbg.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="polyfunc.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="procvect.py" />
     <Compile Include="PyJose.py" />
     <Compile Include="optspecextr.py">

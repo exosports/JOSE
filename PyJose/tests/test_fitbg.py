@@ -33,6 +33,7 @@ class test_fitbg(unittest.TestCase):
         dataim = np.loadtxt('tests/testData/fitbgData/dataim.csv', delimiter=',')
         x1 = np.loadtxt('tests/testData/fitbgData/x1.csv', delimiter=',')
         x2 = np.loadtxt('tests/testData/fitbgData/x2.csv', delimiter=',')
+        # bgdeg = polynomial_degree = what degree of polynomial to use to fit across data
         bgdeg = np.loadtxt('tests/testData/fitbgData/bgdeg.csv', delimiter=',')
         bgmask = np.loadtxt('tests/testData/fitbgData/bgmask.csv', delimiter=',')
         bgres = np.loadtxt('tests/testData/fitbgData/bgres.csv', delimiter=',')
