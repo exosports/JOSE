@@ -15,7 +15,7 @@ class test_procvect(unittest.TestCase):
         datav = np.loadtxt('tests/testData/procvectData/test_00/datav.csv', delimiter=',')
         errflag = np.loadtxt('tests/testData/procvectData/test_00/errflag.csv', delimiter=',')
         fiteval = np.loadtxt('tests/testData/procvectData/test_00/fiteval.csv', delimiter=',')
-        func = 'polyfunc' #TODO: load from file or check? 
+        func = 'polyfunc' #TODO: load from file or check?
         i = np.loadtxt('tests/testData/procvectData/test_00/i.csv', delimiter=',')
         maskv = np.loadtxt('tests/testData/procvectData/test_00/maskv.csv', delimiter=',')
         maskv_output = np.loadtxt('tests/testData/procvectData/test_00/maskv_output.csv', delimiter=',')
@@ -36,6 +36,45 @@ class test_procvect(unittest.TestCase):
         npt.assert_allclose(results_vector, bgRow)
         npt.assert_allclose(new_variance, maskv_output)
         npt.assert_allclose(new_mask, varv_output)
+
+    def test_basicFit(self):
+        xvals = np.linspace(4, 10, num = 100)
+        xvals_clipped = xvals[np.r_[:30, -30:0]] #cut out the middle to represent removing object spectrum
+        func = lambda x: x ** 2 - x 
+        yvals = func(xvals)
+        yvals_clipped = func(xvals_clipped)
+        variance = np.ones(np.shape(xvals)) # variance and threshold shouldn't matter for basic test
+        threshold = 1
+        fit_type = 'polynomial'
+        fit_options = {'deg' : 2}
+
+        calculated_values, model = procvect(xvals_clipped, yvals_clipped, variance, threshold,
+                                            fit_type, False, fit_options)
+
+        npt.assert_allclose(calculated_values, yvals_clipped)
+        npt.assert_allclose(model(xvals), yvals)
+
+
+    def test_fitWithOutliers(self):
+        xvals = np.linspace(4, 10, num = 100)
+        xvals_clipped = xvals[np.r_[:30, -30:0]] #cut out the middle to represent removing object spectrum
+        func = lambda x: x ** 2 - x 
+        yvals = func(xvals)
+        yvals_clipped = func(xvals_clipped)
+        variance = np.ones(np.shape(xvals)) # variance and threshold shouldn't matter for basic test
+        threshold = 1
+        fit_type = 'polynomial'
+        fit_options = {'deg' : 2}
+        yvals_withOutliers = np.copy(yvals_clipped)
+        yvals_withOutliers[3] *= 1e4
+        yvals_withOutliers[40] *= 1e4
+        yvals_withOutliers[80] *= 1e4
+
+        calculated_values, model = procvect(xvals_clipped, yvals_withOutliers, variance, threshold,
+                                            fit_type, False, fit_options)
+
+        npt.assert_allclose(calculated_values, yvals_clipped)
+        npt.assert_allclose(model(xvals), yvals)
 
 if __name__ == '__main__':
     unittest.main()

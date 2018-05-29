@@ -1,6 +1,13 @@
 import numpy as np
 import logging
 
-def procvect():
+def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kwargs):
     '''docstring'''
-    pass
+
+    if fit_type == 'polynomial':
+        coeff = np.polyfit(xdata, ydata, **kwargs)
+        model = np.poly1d(coeff)
+
+    
+
+    return model(xdata), model

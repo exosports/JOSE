@@ -35,6 +35,9 @@
     <Compile Include="optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SpectralData.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\test_extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
