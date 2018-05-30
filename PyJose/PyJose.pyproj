@@ -93,6 +93,10 @@
     <Content Include="tests\testData\fitbgData\x2.csv" />
     <Content Include="tests\testData\optspecextr\example1\ex1.fits" />
     <Content Include="tests\testData\optspecextr\example1\opspec1.csv" />
+    <Content Include="tests\testData\optspecextr\example2\ex2obj.fits" />
+    <Content Include="tests\testData\optspecextr\example2\ex2sky.fits" />
+    <Content Include="tests\testData\optspecextr\example2\opspec2.csv" />
+    <Content Include="tests\testData\optspecextr\example2\skyvar.csv" />
     <Content Include="tests\testData\procvectData\test_00\bcrv.csv" />
     <Content Include="tests\testData\procvectData\test_00\bgRow.csv" />
     <Content Include="tests\testData\procvectData\test_00\bpct.csv" />
