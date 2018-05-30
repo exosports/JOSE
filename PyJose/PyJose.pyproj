@@ -57,6 +57,9 @@
     <Folder Include="tests\testData\" />
     <Folder Include="tests\testData\extractfuncData\" />
     <Folder Include="tests\testData\fitbgData\" />
+    <Folder Include="tests\testData\optspecextr\" />
+    <Folder Include="tests\testData\optspecextr\example1\" />
+    <Folder Include="tests\testData\optspecextr\example2\" />
     <Folder Include="tests\testData\procvectData\" />
     <Folder Include="tests\testData\procvectData\test_00\" />
     <Folder Include="tests\testData\procvectData\test_01\" />
@@ -88,6 +91,8 @@
     <Content Include="tests\testData\fitbgData\verbose.csv" />
     <Content Include="tests\testData\fitbgData\x1.csv" />
     <Content Include="tests\testData\fitbgData\x2.csv" />
+    <Content Include="tests\testData\optspecextr\example1\ex1.fits" />
+    <Content Include="tests\testData\optspecextr\example1\opspec1.csv" />
     <Content Include="tests\testData\procvectData\test_00\bcrv.csv" />
     <Content Include="tests\testData\procvectData\test_00\bgRow.csv" />
     <Content Include="tests\testData\procvectData\test_00\bpct.csv" />
