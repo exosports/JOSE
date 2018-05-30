@@ -1,13 +1,36 @@
 import numpy as np
 import logging
 
+from procvect import procvect
+
 log = logging.getLogger(__name__)
 
-def fitbg(dataim, x1, x2, variance, ):
+def fitbg(data, object_bounds, variance):
     '''docstring'''
 
+    # set up mask which excludes object between x1 and x2
+    object_mask = np.full(np.shape(data)[0], False)
+    object_mask[:object_bounds[0]] = True
+    object_mask[object_bounds[1]:] = True
+
+    x_values = np.array(range(np.shape(data)[1]))
+
+    background_image = np.zeros(np.shape(data))
+    ray_mask = np.full(np.shape(data), True) # initially no pixels are masked
+
+    for wavelength in range(len(data)): #wavelenght stores in rows, iterate over each
+        # for each wavelength use a low order polynomial to figure the background image
+
+        _, outlier_mask, model = procvect(xdata = x_values[object_mask], 
+                                          ydata = data[wavelength,:][object_mask],
+                                          variance = variance[wavelength, :][object_mask],
+                                          threshold = 16,
+                                          fit_type = "polynomial",
+                                          absolute_threshold = False,
+                                          kwargs = {'deg' : 2})
+       
+        background_image[wavelength, :] = model(x_values) #use fitted model to make background image
+        ray_mask[wavelength, :][object_mask] = outlier_mask
 
 
-
-    bgim = None
-    return bgim
+    return background_image
