@@ -58,6 +58,8 @@ class test_fitbg(unittest.TestCase):
         npt.assert_allclose(result, bgim)
 
 
+    def test_flatBackground(self):
+        data = np.zeros((200,200))
 
 
 
