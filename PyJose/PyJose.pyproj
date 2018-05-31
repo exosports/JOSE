@@ -38,6 +38,12 @@
     <Compile Include="SpectralData.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="stdextr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\testData\test_stdextr.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tests\test_extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
