@@ -41,7 +41,7 @@
     <Compile Include="stdextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\testData\test_stdextr.py">
+    <Compile Include="tests\test_stdextr.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tests\test_extractfunc.py">
@@ -70,6 +70,7 @@
     <Folder Include="tests\testData\procvectData\test_00\" />
     <Folder Include="tests\testData\procvectData\test_01\" />
     <Folder Include="tests\testData\procvectData\test_02\" />
+    <Folder Include="tests\testData\stdextrData\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tests\testData\extractfuncData\coeffv.csv" />
@@ -172,6 +173,12 @@
     <Content Include="tests\testData\procvectData\test_02\vectnum.csv" />
     <Content Include="tests\testData\procvectData\test_02\verbose.csv" />
     <Content Include="tests\testData\procvectData\test_02\xvals.csv" />
+    <Content Include="tests\testData\stdextrData\dataim.csv" />
+    <Content Include="tests\testData\stdextrData\stdspec.csv" />
+    <Content Include="tests\testData\stdextrData\stdvar.csv" />
+    <Content Include="tests\testData\stdextrData\varim.csv" />
+    <Content Include="tests\testData\stdextrData\x1.csv" />
+    <Content Include="tests\testData\stdextrData\x2.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
