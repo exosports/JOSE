@@ -1,6 +1,10 @@
 import unittest
 import numpy as np
 import numpy.testing as npt
+import sys
+print("Here are the paths")
+print(sys.path)
+print('---------------')
 
 from stdextr import stdextr
 

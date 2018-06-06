@@ -4,13 +4,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>197c698c-396d-4c1d-aa85-a06f7c87bf07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>PyJose.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <StartupFile>jose\PyJose.py</StartupFile>
+    <SearchPath>./jose</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PyJose</Name>
     <RootNamespace>PyJose</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,164 +23,171 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="extractfunc.py">
+    <Compile Include="jose\extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="fitbg.py">
+    <Compile Include="jose\fitbg.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="polyfunc.py">
+    <Compile Include="jose\polyfunc.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="procvect.py" />
-    <Compile Include="PyJose.py" />
-    <Compile Include="optspecextr.py">
+    <Compile Include="jose\procvect.py" />
+    <Compile Include="jose\PyJose.py" />
+    <Compile Include="jose\optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SpectralData.py">
+    <Compile Include="jose\SpectralData.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="stdextr.py">
+    <Compile Include="jose\stdextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\test_stdextr.py">
+    <Compile Include="jose\test\test_stdextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\test_extractfunc.py">
+    <Compile Include="jose\test\test_extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\test_fitbg.py">
+    <Compile Include="jose\test\test_fitbg.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\test_optspecextr.py">
+    <Compile Include="jose\test\test_optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tests\test_procvect.py">
+    <Compile Include="jose\test\test_procvect.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jose\test\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jose\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="images\" />
-    <Folder Include="tests\" />
-    <Folder Include="tests\testData\" />
-    <Folder Include="tests\testData\extractfuncData\" />
-    <Folder Include="tests\testData\fitbgData\" />
-    <Folder Include="tests\testData\optspecextr\" />
-    <Folder Include="tests\testData\optspecextr\example1\" />
-    <Folder Include="tests\testData\optspecextr\example2\" />
-    <Folder Include="tests\testData\procvectData\" />
-    <Folder Include="tests\testData\procvectData\test_00\" />
-    <Folder Include="tests\testData\procvectData\test_01\" />
-    <Folder Include="tests\testData\procvectData\test_02\" />
-    <Folder Include="tests\testData\stdextrData\" />
+    <Folder Include="jose\" />
+    <Folder Include="jose\test\" />
+    <Folder Include="jose\test\testData\" />
+    <Folder Include="jose\test\testData\extractfuncData\" />
+    <Folder Include="jose\test\testData\fitbgData\" />
+    <Folder Include="jose\test\testData\optspecextr\" />
+    <Folder Include="jose\test\testData\optspecextr\example1\" />
+    <Folder Include="jose\test\testData\optspecextr\example2\" />
+    <Folder Include="jose\test\testData\procvectData\" />
+    <Folder Include="jose\test\testData\procvectData\test_00\" />
+    <Folder Include="jose\test\testData\procvectData\test_01\" />
+    <Folder Include="jose\test\testData\procvectData\test_02\" />
+    <Folder Include="jose\test\testData\stdextrData\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="tests\testData\extractfuncData\coeffv.csv" />
-    <Content Include="tests\testData\extractfuncData\datav.csv" />
-    <Content Include="tests\testData\extractfuncData\eval.csv" />
-    <Content Include="tests\testData\extractfuncData\opt.csv" />
-    <Content Include="tests\testData\extractfuncData\opvar.csv" />
-    <Content Include="tests\testData\extractfuncData\profv.csv" />
-    <Content Include="tests\testData\extractfuncData\varv.csv" />
-    <Content Include="tests\testData\extractfuncData\xvals.csv" />
-    <Content Include="tests\testData\fitbgData\bgdeg.csv" />
-    <Content Include="tests\testData\fitbgData\bgim.csv" />
-    <Content Include="tests\testData\fitbgData\bgmask.csv" />
-    <Content Include="tests\testData\fitbgData\bgres.csv" />
-    <Content Include="tests\testData\fitbgData\bthresh.csv" />
-    <Content Include="tests\testData\fitbgData\dataim.csv" />
-    <Content Include="tests\testData\fitbgData\errvect.csv" />
-    <Content Include="tests\testData\fitbgData\gotovect.csv" />
-    <Content Include="tests\testData\fitbgData\inmask.csv" />
-    <Content Include="tests\testData\fitbgData\plottype.csv" />
-    <Content Include="tests\testData\fitbgData\q.csv" />
-    <Content Include="tests\testData\fitbgData\skyvar.csv" />
-    <Content Include="tests\testData\fitbgData\v0.csv" />
-    <Content Include="tests\testData\fitbgData\varim.csv" />
-    <Content Include="tests\testData\fitbgData\verbose.csv" />
-    <Content Include="tests\testData\fitbgData\x1.csv" />
-    <Content Include="tests\testData\fitbgData\x2.csv" />
-    <Content Include="tests\testData\optspecextr\example1\ex1.fits" />
-    <Content Include="tests\testData\optspecextr\example1\opspec1.csv" />
-    <Content Include="tests\testData\optspecextr\example2\ex2obj.fits" />
-    <Content Include="tests\testData\optspecextr\example2\ex2sky.fits" />
-    <Content Include="tests\testData\optspecextr\example2\opspec2.csv" />
-    <Content Include="tests\testData\optspecextr\example2\skyvar.csv" />
-    <Content Include="tests\testData\procvectData\test_00\bcrv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\bgRow.csv" />
-    <Content Include="tests\testData\procvectData\test_00\bpct.csv" />
-    <Content Include="tests\testData\procvectData\test_00\bthresh.csv" />
-    <Content Include="tests\testData\procvectData\test_00\crv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\datav.csv" />
-    <Content Include="tests\testData\procvectData\test_00\errflag.csv" />
-    <Content Include="tests\testData\procvectData\test_00\fiteval.csv" />
-    <Content Include="tests\testData\procvectData\test_00\func.csv" />
-    <Content Include="tests\testData\procvectData\test_00\i.csv" />
-    <Content Include="tests\testData\procvectData\test_00\maskv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\maskv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_00\parm.csv" />
-    <Content Include="tests\testData\procvectData\test_00\plottype.csv" />
-    <Content Include="tests\testData\procvectData\test_00\q.csv" />
-    <Content Include="tests\testData\procvectData\test_00\skyvarv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\thresh.csv" />
-    <Content Include="tests\testData\procvectData\test_00\v0.csv" />
-    <Content Include="tests\testData\procvectData\test_00\varv.csv" />
-    <Content Include="tests\testData\procvectData\test_00\varv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_00\vectnum.csv" />
-    <Content Include="tests\testData\procvectData\test_00\verbose.csv" />
-    <Content Include="tests\testData\procvectData\test_00\xvals.csv" />
-    <Content Include="tests\testData\procvectData\test_01\bcrv.csv" />
-    <Content Include="tests\testData\procvectData\test_01\bgRow.csv" />
-    <Content Include="tests\testData\procvectData\test_01\bpct.csv" />
-    <Content Include="tests\testData\procvectData\test_01\bthresh.csv" />
-    <Content Include="tests\testData\procvectData\test_01\crv.csv" />
-    <Content Include="tests\testData\procvectData\test_01\datav.csv" />
-    <Content Include="tests\testData\procvectData\test_01\errflag.csv" />
-    <Content Include="tests\testData\procvectData\test_01\fiteval.csv" />
-    <Content Include="tests\testData\procvectData\test_01\func.csv" />
-    <Content Include="tests\testData\procvectData\test_01\i.csv" />
-    <Content Include="tests\testData\procvectData\test_01\maskv.csv" />
-    <Content Include="tests\testData\procvectData\test_01\maskv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_01\parm.csv" />
-    <Content Include="tests\testData\procvectData\test_01\plottype.csv" />
-    <Content Include="tests\testData\procvectData\test_01\q.csv" />
-    <Content Include="tests\testData\procvectData\test_01\skyvarv.csv" />
-    <Content Include="tests\testData\procvectData\test_01\thresh.csv" />
-    <Content Include="tests\testData\procvectData\test_01\v0.csv" />
-    <Content Include="tests\testData\procvectData\test_01\varv.csv" />
-    <Content Include="tests\testData\procvectData\test_01\varv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_01\vectnum.csv" />
-    <Content Include="tests\testData\procvectData\test_01\verbose.csv" />
-    <Content Include="tests\testData\procvectData\test_01\xvals.csv" />
-    <Content Include="tests\testData\procvectData\test_02\bcrv.csv" />
-    <Content Include="tests\testData\procvectData\test_02\bgRow.csv" />
-    <Content Include="tests\testData\procvectData\test_02\bpct.csv" />
-    <Content Include="tests\testData\procvectData\test_02\bthresh.csv" />
-    <Content Include="tests\testData\procvectData\test_02\crv.csv" />
-    <Content Include="tests\testData\procvectData\test_02\datav.csv" />
-    <Content Include="tests\testData\procvectData\test_02\errflag.csv" />
-    <Content Include="tests\testData\procvectData\test_02\fiteval.csv" />
-    <Content Include="tests\testData\procvectData\test_02\func.csv" />
-    <Content Include="tests\testData\procvectData\test_02\i.csv" />
-    <Content Include="tests\testData\procvectData\test_02\maskv.csv" />
-    <Content Include="tests\testData\procvectData\test_02\maskv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_02\parm.csv" />
-    <Content Include="tests\testData\procvectData\test_02\plottype.csv" />
-    <Content Include="tests\testData\procvectData\test_02\q.csv" />
-    <Content Include="tests\testData\procvectData\test_02\skyvarv.csv" />
-    <Content Include="tests\testData\procvectData\test_02\thresh.csv" />
-    <Content Include="tests\testData\procvectData\test_02\v0.csv" />
-    <Content Include="tests\testData\procvectData\test_02\varv.csv" />
-    <Content Include="tests\testData\procvectData\test_02\varv_output.csv" />
-    <Content Include="tests\testData\procvectData\test_02\vectnum.csv" />
-    <Content Include="tests\testData\procvectData\test_02\verbose.csv" />
-    <Content Include="tests\testData\procvectData\test_02\xvals.csv" />
-    <Content Include="tests\testData\stdextrData\dataim.csv" />
-    <Content Include="tests\testData\stdextrData\stdspec.csv" />
-    <Content Include="tests\testData\stdextrData\stdvar.csv" />
-    <Content Include="tests\testData\stdextrData\varim.csv" />
-    <Content Include="tests\testData\stdextrData\x1.csv" />
-    <Content Include="tests\testData\stdextrData\x2.csv" />
+    <Content Include="jose\test\testData\extractfuncData\coeffv.csv" />
+    <Content Include="jose\test\testData\extractfuncData\datav.csv" />
+    <Content Include="jose\test\testData\extractfuncData\eval.csv" />
+    <Content Include="jose\test\testData\extractfuncData\opt.csv" />
+    <Content Include="jose\test\testData\extractfuncData\opvar.csv" />
+    <Content Include="jose\test\testData\extractfuncData\profv.csv" />
+    <Content Include="jose\test\testData\extractfuncData\varv.csv" />
+    <Content Include="jose\test\testData\extractfuncData\xvals.csv" />
+    <Content Include="jose\test\testData\fitbgData\bgdeg.csv" />
+    <Content Include="jose\test\testData\fitbgData\bgim.csv" />
+    <Content Include="jose\test\testData\fitbgData\bgmask.csv" />
+    <Content Include="jose\test\testData\fitbgData\bgres.csv" />
+    <Content Include="jose\test\testData\fitbgData\bthresh.csv" />
+    <Content Include="jose\test\testData\fitbgData\dataim.csv" />
+    <Content Include="jose\test\testData\fitbgData\errvect.csv" />
+    <Content Include="jose\test\testData\fitbgData\gotovect.csv" />
+    <Content Include="jose\test\testData\fitbgData\inmask.csv" />
+    <Content Include="jose\test\testData\fitbgData\plottype.csv" />
+    <Content Include="jose\test\testData\fitbgData\q.csv" />
+    <Content Include="jose\test\testData\fitbgData\skyvar.csv" />
+    <Content Include="jose\test\testData\fitbgData\v0.csv" />
+    <Content Include="jose\test\testData\fitbgData\varim.csv" />
+    <Content Include="jose\test\testData\fitbgData\verbose.csv" />
+    <Content Include="jose\test\testData\fitbgData\x1.csv" />
+    <Content Include="jose\test\testData\fitbgData\x2.csv" />
+    <Content Include="jose\test\testData\optspecextr\example1\ex1.fits" />
+    <Content Include="jose\test\testData\optspecextr\example1\opspec1.csv" />
+    <Content Include="jose\test\testData\optspecextr\example2\ex2obj.fits" />
+    <Content Include="jose\test\testData\optspecextr\example2\ex2sky.fits" />
+    <Content Include="jose\test\testData\optspecextr\example2\opspec2.csv" />
+    <Content Include="jose\test\testData\optspecextr\example2\skyvar.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\bcrv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\bgRow.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\bpct.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\bthresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\crv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\datav.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\errflag.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\fiteval.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\func.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\i.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\maskv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\maskv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\parm.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\plottype.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\q.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\skyvarv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\thresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\v0.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\varv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\varv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\vectnum.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\verbose.csv" />
+    <Content Include="jose\test\testData\procvectData\test_00\xvals.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\bcrv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\bgRow.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\bpct.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\bthresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\crv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\datav.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\errflag.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\fiteval.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\func.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\i.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\maskv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\maskv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\parm.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\plottype.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\q.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\skyvarv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\thresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\v0.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\varv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\varv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\vectnum.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\verbose.csv" />
+    <Content Include="jose\test\testData\procvectData\test_01\xvals.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\bcrv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\bgRow.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\bpct.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\bthresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\crv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\datav.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\errflag.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\fiteval.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\func.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\i.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\maskv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\maskv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\parm.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\plottype.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\q.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\skyvarv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\thresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\v0.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\varv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\varv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\vectnum.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\verbose.csv" />
+    <Content Include="jose\test\testData\procvectData\test_02\xvals.csv" />
+    <Content Include="jose\test\testData\stdextrData\dataim.csv" />
+    <Content Include="jose\test\testData\stdextrData\stdspec.csv" />
+    <Content Include="jose\test\testData\stdextrData\stdvar.csv" />
+    <Content Include="jose\test\testData\stdextrData\varim.csv" />
+    <Content Include="jose\test\testData\stdextrData\x1.csv" />
+    <Content Include="jose\test\testData\stdextrData\x2.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
