@@ -4,3 +4,5 @@ from .extractfunc import extractfunc
 from .optspecextr import optspectextr
 from .polyfunc import polyfunc
 from .procvect import procvect
+
+from .optimal_extraction import optimal_extraction
