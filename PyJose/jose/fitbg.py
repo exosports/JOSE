@@ -1,7 +1,7 @@
 import numpy as np
 import logging
 
-from procvect import procvect
+from .procvect import procvect
 
 log = logging.getLogger(__name__)
 

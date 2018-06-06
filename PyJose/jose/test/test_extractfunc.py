@@ -1,21 +1,24 @@
 import unittest
 import numpy as np
 import numpy.testing as npt
+import os
 
-from extractfunc import extractfunc
+import jose
+
+testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'extractfuncData')
 
 class test_extractfunc(unittest.TestCase):
     def test_IDLAgreement1(self):
-        coeffv = np.loadtxt('tests/testData/extractfuncData/coeffv.csv', delimiter=',')
-        datav = np.loadtxt('tests/testData/extractfuncData/datav.csv', delimiter=',')
-        eval = np.loadtxt('tests/testData/extractfuncData/eval.csv', delimiter=',')
-        opt = np.loadtxt('tests/testData/extractfuncData/opt.csv', delimiter=',')
-        opvar = np.loadtxt('tests/testData/extractfuncData/opvar.csv', delimiter=',')
-        profv = np.loadtxt('tests/testData/extractfuncData/profv.csv', delimiter=',')
-        varv = np.loadtxt('tests/testData/extractfuncData/varv.csv', delimiter=',')
-        xvals = np.loadtxt('tests/testData/extractfuncData/xvals.csv', delimiter=',')
+        coeffv = np.loadtxt(os.path.join(testData_directory, "coeffv.csv"), delimiter=',')
+        datav = np.loadtxt(os.path.join(testData_directory, "datav.csv"), delimiter=',')
+        eval = np.loadtxt(os.path.join(testData_directory, "eval.csv"), delimiter=',')
+        opt = np.loadtxt(os.path.join(testData_directory, "opt.csv"), delimiter=',')
+        opvar = np.loadtxt(os.path.join(testData_directory, "opvar.csv"), delimiter=',')
+        profv = np.loadtxt(os.path.join(testData_directory, "profv.csv"), delimiter=',')
+        varv = np.loadtxt(os.path.join(testData_directory, "varv.csv"), delimiter=',')
+        xvals = np.loadtxt(os.path.join(testData_directory, "xvals.csv"), delimiter=',')
 
-        results, opvarResult = extractfunc(xvals, datav, varv, profv, eval, coeffv)
+        results, opvarResult = jose.extractfunc(xvals, datav, varv, profv, eval, coeffv)
 
         npt.assert_allclose(results, opt)
 
@@ -29,7 +32,7 @@ class test_extractfunc(unittest.TestCase):
         coeffv = None
 
 
-        result, opvarResult = extractfunc(xvals, datav, varv, profv, eval, coeffv)
+        result, opvarResult = jose.extractfunc(xvals, datav, varv, profv, eval, coeffv)
 
         self.assertEqual(result, 0)
         self.assertEqual(opvarResult, None)
