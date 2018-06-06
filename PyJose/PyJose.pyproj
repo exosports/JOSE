@@ -5,7 +5,8 @@
     <ProjectGuid>197c698c-396d-4c1d-aa85-a06f7c87bf07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>jose\PyJose.py</StartupFile>
-    <SearchPath>./jose</SearchPath>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PyJose</Name>
