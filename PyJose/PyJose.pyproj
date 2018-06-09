@@ -27,6 +27,9 @@
     <Compile Include="jose\create_profile.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="jose\extract.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="jose\extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
