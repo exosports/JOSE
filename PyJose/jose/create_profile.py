@@ -25,7 +25,7 @@ def create_profile(data, sky, variance):
 
             SNR = (data[:,i] - sky[:,i] - f * fitted_profile)**2 / variance[:,i]
             outliers = SNR > rejection_threshold
-            if previous_outlieres == outliers:
+            if np.array_equal(previous_outlieres, outliers):
                 fit_complete = True
                 profile[:,i] = fitted_profile
             else:

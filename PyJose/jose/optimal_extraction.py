@@ -4,6 +4,7 @@ import logging
 from .fitbg import fitbg
 from .stdextr import stdextr
 from .create_profile import create_profile
+from .extract import extract
 
 log = logging.getLogger(__name__)
 
@@ -13,7 +14,7 @@ def optimal_extraction(data, variance, rn, Q, object_bounds):
 
     sky_subtracted = data - background
 
-    standard_spectrum = stdextr(data, variance, object_bounds) #TODO: implement user-supplied mask
+    standard_spectrum, var = stdextr(data, variance, object_bounds) #TODO: implement user-supplied mask
 
     profile = create_profile(data, background, variance)
 

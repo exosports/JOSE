@@ -20,7 +20,7 @@ class test_optspecextr(unittest.TestCase):
 
         varim = np.abs(frame1.data) / Q + rn**2
 
-        optimal_spectrum = jose.optspectextr()
+        optimal_spectrum = jose.optimal_extraction(frame1.data, varim, rn, Q, (leftBound, rightBound))
 
         opspec1 = np.loadtxt(os.path.join(example1dir, 'opspec1.csv'), delimiter=',')
 
