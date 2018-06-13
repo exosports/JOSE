@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>197c698c-396d-4c1d-aa85-a06f7c87bf07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>jose\PyJose.py</StartupFile>
+    <StartupFile>jose\jose.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -40,7 +40,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\procvect.py" />
-    <Compile Include="jose\PyJose.py" />
+    <Compile Include="jose\jose.py" />
     <Compile Include="jose\optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
