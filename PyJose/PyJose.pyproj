@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>197c698c-396d-4c1d-aa85-a06f7c87bf07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>jose\jose.py</StartupFile>
+    <StartupFile>jose\test\interactiveTest\findTraceCenter.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,6 +25,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="jose\create_profile.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jose\curved_frame.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\extract.py">
@@ -48,6 +51,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\stdextr.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="jose\test\interactiveTest\findTraceCenter.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\test\test_create_profile.py">
@@ -82,6 +88,7 @@
     <Folder Include="images\" />
     <Folder Include="jose\" />
     <Folder Include="jose\test\" />
+    <Folder Include="jose\test\interactiveTest\" />
     <Folder Include="jose\test\testData\" />
     <Folder Include="jose\test\testData\extractfuncData\" />
     <Folder Include="jose\test\testData\fitbgData\" />
