@@ -1,9 +1,12 @@
 import numpy as np
 from scipy.optimize import curve_fit, least_squares
+from astropy.stats import sigma_clip
+from astropy.modeling import models, fitting
+import scipy.stats as stats
 
 import matplotlib.pyplot as plt
 
-def find_centers(data):
+def find_centers(data, variance):
     '''Returns a value for the center for each row of input data'''
     centers = np.zeros(data.shape[0])
 
