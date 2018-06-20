@@ -22,3 +22,4 @@ plt.imshow(curvedFrame.data)
 plt.plot(traceCenters, list(range(len(traceCenters))))
 plt.show()
 
+print('stuff')

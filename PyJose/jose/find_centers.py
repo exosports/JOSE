@@ -29,7 +29,11 @@ def find_centers(data, variance):
 
     x = np.array(list(range(len(data[0]))))
     for i, row in enumerate(data):
-        g_init = models.Gaussian1D(amplitude=np.max(row[left_bound:right_bound]), mean=len(x)/2, stddev=1.) + models.Const1D(amplitude=np.min(row))
+        g_init = models.Gaussian1D(amplitude=np.max(row[left_bound:right_bound]),
+                                  mean=len(x)/2, 
+                                  stddev=1.0,
+                                  bounds={"stddev" : (1, (right_bound - left_bound) / 3.0)}
+                 ) + models.Const1D(amplitude=np.min(row))
         # initial_parameters = (np.max(row), len(x) / 2, 1, np.min(row)) # create reasonable initial guesses
         # make own function? unit test?
         #masked_data, model = clipping_fit(gauss_model, x, row)
