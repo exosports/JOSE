@@ -27,7 +27,7 @@
     <Compile Include="jose\create_profile.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jose\curved_frame.py">
+    <Compile Include="jose\find_centers.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\extract.py">

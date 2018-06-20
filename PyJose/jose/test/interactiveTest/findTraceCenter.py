@@ -11,4 +11,7 @@ curvedFrame = pyfits.open(os.path.join(exampleDir, 'ex3.fits'))[0]
 
 traceCenters = jose.find_centers(curvedFrame.data)
 
+plt.imshow(curvedFrame.data)
+plt.plot(traceCenters, list(range(len(traceCenters))))
+plt.show()
 

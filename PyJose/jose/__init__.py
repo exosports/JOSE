@@ -7,3 +7,4 @@ from .procvect import procvect
 
 from .optimal_extraction import optimal_extraction
 from .create_profile import create_profile
+from .find_centers import find_centers
