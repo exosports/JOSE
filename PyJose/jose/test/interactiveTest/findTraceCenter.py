@@ -12,11 +12,11 @@ curvedFrame = pyfits.open(os.path.join(exampleDir, 'ex4.fits'))[0]
 
 Q = curvedFrame.header.get('EPADU')
 rn = curvedFrame.header.get('RDNOISE') / Q
-leftBound = 240
-rightBound = 270
+left_bound = 240
+right_bound = 270
 varim = np.abs(curvedFrame.data) / Q + rn**2
 
-traceCenters = jose.find_centers(curvedFrame.data, varim)
+traceCenters = jose.find_centers(curvedFrame.data, varim, left_bound, right_bound)
 
 plt.imshow(curvedFrame.data)
 plt.plot(traceCenters, list(range(len(traceCenters))))
