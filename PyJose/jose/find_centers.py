@@ -6,6 +6,9 @@ import scipy.stats as stats
 
 import matplotlib.pyplot as plt
 
+def jose_fit(x, row, variance):
+
+
 def scipy_fit(x, row, variance):
     gaussian = lambda x, a, b, c, d: a * np.exp(-(x - b) ** 2 / c ** 2) + d
     f = lambda params, x, y: gaussian(x, *params) - y
@@ -19,7 +22,7 @@ def astropy_clipping_fit(x, row, variance):
     gauss_model = models.Gaussian1D() + models.Const1D()
 
     fit = fitting.LevMarLSQFitter()
-    clipping_fit = fitting.FittingWithOutlierRemoval(fit, sigma_clip, niter=30, sigma=3.0)
+    clipping_fit = fitting.FittingWithOutlierRemoval(fit, sigma_clip, niter=30, sigma=15.0)
 
     # initialize fitters
     fit = fitting.LevMarLSQFitter()
@@ -44,7 +47,7 @@ def find_centers(data, variance, left_bound, right_bound):
     x = np.array(list(range(len(data[0, left_bound:right_bound]))))
     for i, row in enumerate(data[:, left_bound:right_bound]):
         
-        centers[i] = left_bound + scipy_fit(x, row, variance[i, left_bound:right_bound])
+        centers[i] = left_bound + astropy_clipping_fit(x, row, variance[i, left_bound:right_bound])
 
         #plt.plot(x, row, 'gx')
         #plt.plot(x, filtered_data, 'r+')

@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 print('hello tests')
-print(os.getcwd())
 
 exampleDir = 'images'
 curvedFrame = pyfits.open(os.path.join(exampleDir, 'ex4.fits'))[0]
