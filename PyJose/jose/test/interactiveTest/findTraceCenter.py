@@ -8,7 +8,7 @@ print('hello tests')
 print(os.getcwd())
 
 exampleDir = 'images'
-curvedFrame = pyfits.open(os.path.join(exampleDir, 'ex3.fits'))[0]
+curvedFrame = pyfits.open(os.path.join(exampleDir, 'ex4.fits'))[0]
 
 Q = curvedFrame.header.get('EPADU')
 rn = curvedFrame.header.get('RDNOISE') / Q
