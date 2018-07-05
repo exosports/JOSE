@@ -7,7 +7,7 @@ import scipy.stats as stats
 import matplotlib.pyplot as plt
 
 def jose_fit(x, row, variance):
-
+    pass
 
 def scipy_fit(x, row, variance):
     gaussian = lambda x, a, b, c, d: a * np.exp(-(x - b) ** 2 / c ** 2) + d
