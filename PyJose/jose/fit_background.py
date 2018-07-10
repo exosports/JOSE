@@ -27,7 +27,7 @@ def fit_background(data, object_bounds, variance):
                                           threshold = 16,
                                           fit_type = "polynomial",
                                           absolute_threshold = False,
-                                          kwargs = {'deg' : 2})
+                                          kwargs = {'deg' : 1})
        
         background_image[wavelength, :] = model(x_values) #use fitted model to make background image
         ray_mask[wavelength, :][object_mask] = outlier_mask

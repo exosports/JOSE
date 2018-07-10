@@ -6,7 +6,7 @@ import os
 
 import jose
 
-testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fit_backgroundData')
+testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData')
 
 class test_fit_background(unittest.TestCase):
     def test_testDataPresent(self):
