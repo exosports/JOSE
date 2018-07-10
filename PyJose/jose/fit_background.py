@@ -5,7 +5,7 @@ from .procvect import procvect
 
 log = logging.getLogger(__name__)
 
-def fitbg(data, object_bounds, variance):
+def fit_background(data, object_bounds, variance):
     '''docstring'''
 
     # set up mask which excludes object between x1 and x2

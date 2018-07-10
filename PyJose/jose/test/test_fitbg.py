@@ -6,9 +6,9 @@ import os
 
 import jose
 
-testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData')
+testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fit_backgroundData')
 
-class test_fitbg(unittest.TestCase):
+class test_fit_background(unittest.TestCase):
     def test_testDataPresent(self):
         '''Sanity check to ensure test data is present'''
         dataim = np.loadtxt(os.path.join(testData_directory, "dataim.csv"), delimiter=',')
@@ -29,7 +29,7 @@ class test_fitbg(unittest.TestCase):
         v0 = np.loadtxt(os.path.join(testData_directory, "v0.csv"), delimiter=',')
 
 
-    def test_testIDLAgreement_fitbg_loose(self):
+    def test_testIDLAgreement_fit_background_loose(self):
         '''Recorded data from first part of IDL jose tutorial to compare against'''
         dataim = np.loadtxt(os.path.join(testData_directory, "dataim.csv"), delimiter=',')
         x1 = np.loadtxt(os.path.join(testData_directory, "x1.csv"), delimiter=',')
@@ -51,7 +51,7 @@ class test_fitbg(unittest.TestCase):
         bpct = None
         nobgfit = None
 
-        results = jose.fitbg(dataim, (int(np.asscalar(x1)), int(np.asscalar(x2))), varim)
+        results = jose.fit_background(dataim, (int(np.asscalar(x1)), int(np.asscalar(x2))), varim)
 
         bgim = np.loadtxt(os.path.join(testData_directory, "bgim.csv"), delimiter=',')
 
@@ -64,7 +64,7 @@ class test_fitbg(unittest.TestCase):
         variance = np.ones(np.shape(data))
         object_bounds = (80, 120)
 
-        background_image = jose.fitbg(data, object_bounds, variance)
+        background_image = jose.fit_background(data, object_bounds, variance)
 
         npt.assert_allclose(background_image, np.zeros(np.shape(data)))
 
@@ -74,7 +74,7 @@ class test_fitbg(unittest.TestCase):
         variance = np.ones(np.shape(data))
         object_bounds = (80, 120)
 
-        background_image = jose.fitbg(data, object_bounds, variance)
+        background_image = jose.fit_background(data, object_bounds, variance)
 
         npt.assert_allclose(background_image, np.ones(np.shape(data)))
 

@@ -1,5 +1,5 @@
 from .stdextr import stdextr
-from .fitbg import fitbg
+from .fit_background import fit_background
 from .extractfunc import extractfunc
 from .optspecextr import optspectextr
 from .polyfunc import polyfunc

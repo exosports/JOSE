@@ -36,7 +36,7 @@
     <Compile Include="jose\extractfunc.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jose\fitbg.py">
+    <Compile Include="jose\fit_background.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\polyfunc.py">

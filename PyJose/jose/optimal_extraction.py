@@ -1,7 +1,8 @@
 import numpy as np
 import logging
 
-from .fitbg import fitbg
+# TODO: change to import jose
+from .fit_background import fit_background
 from .stdextr import stdextr
 from .create_profile import create_profile
 from .extract import extract
@@ -10,7 +11,7 @@ log = logging.getLogger(__name__)
 
 def optimal_extraction(data, variance, rn, Q, object_bounds):
     '''docstring'''
-    background = fitbg(data, object_bounds, variance)
+    background = fit_background(data, object_bounds, variance)
 
     sky_subtracted = data - background
 
