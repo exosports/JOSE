@@ -6,7 +6,7 @@ import os
 
 import jose
 
-testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData')
+testData_directory = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData', 'test_00')
 
 class test_fit_background(unittest.TestCase):
     def test_testDataPresent(self):
@@ -57,6 +57,22 @@ class test_fit_background(unittest.TestCase):
 
         npt.assert_allclose(results, bgim, rtol=0.01)
 
+    def test_IDLAgreement_example1(self):
+        print(os.getcwd())
+        imageDir = 'images'
+        frame1 = pyfits.open(os.path.join(imageDir, 'ex1.fits'))[0]
+        Q = frame1.header.get('EPADU')
+        rn = frame1.header.get('RDNOISE') / Q
+        leftBound = 240
+        rightBound = 270
+        varim = np.abs(frame1.data) / Q + rn**2
+
+        background = jose.fit_background(frame1.data, (leftBound, rightBound), varim)
+
+        example1dir = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData', 'test_01')
+        idl_background = np.loadtxt(os.path.join(example1dir, 'bgim.csv'), delimiter=',')
+
+        npt.assert_allclose(background, idl_background)
 
 
     def test_flatBackground(self):
