@@ -15,7 +15,7 @@ def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kw
     outliersRemoved_fit = fitting.FittingWithOutlierRemoval(fit, sigma_clip)
 
     a, b = fit(polynomial, xdata, ydata, weights=1.0 / variance)
-    filtered_data, model = outliersRemoved_fit(polynomial, xdata, ydata, weights = 1.0 / variance)
+    filtered_data, model = outliersRemoved_fit(polynomial, xdata, ydata)
 
     return model(xdata), None, model
 
