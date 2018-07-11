@@ -9,15 +9,42 @@ def single_sigma_clip(data, *args):
     pass
 
 def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kwargs):
-    '''docstring'''
-    polynomial = models.Polynomial1D(degree=1)
-    fit = fitting.LevMarLSQFitter()
-    outliersRemoved_fit = fitting.FittingWithOutlierRemoval(fit, sigma_clip)
+    '''Reject only one pixel at a time'''
+    converged = False
+    mask = np.full(np.shape(xdata), True)
 
-    a, b = fit(polynomial, xdata, ydata, weights=1.0 / variance)
-    filtered_data, model = outliersRemoved_fit(polynomial, xdata, ydata)
+    while not converged:
+        if fit_type == 'polynomial':
+            x_masked = xdata[mask]
+            y_masked = ydata[mask]
+            variance_masked = variance[mask]
+            # TODO: I think the weights are messed up, maybe should be sqrt of that
+            coeff = np.polyfit(x_masked, y_masked, **kwargs, w = 1 / variance_masked)
+            model = np.poly1d(coeff)
+            fitted_values = model(x_masked)
+            # check for outliers
 
-    return model(xdata), None, model
+            # TODO: absolute threshold
+            residuals = (model(xdata) - ydata)**2 / (variance)
+            outliers = residuals > threshold
+
+            if np.any(outliers[mask]): # are there still any unmasked residuals
+                mask[residuals == residuals[mask].max()] = False
+            else:
+                converged = True
+     
+    return model(xdata), mask, model
+
+
+#def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kwargs):
+#    '''docstring'''
+#    polynomial = models.Polynomial1D(degree=1)
+#    fit = fitting.LevMarLSQFitter()
+#    outliersRemoved_fit = fitting.FittingWithOutlierRemoval(fit, sigma_clip)
+
+#    filtered_data, model = outliersRemoved_fit(polynomial, xdata, ydata)
+
+#    return model(xdata), None, model
 
 
 

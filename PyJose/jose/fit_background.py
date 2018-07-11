@@ -24,7 +24,7 @@ def fit_background(data, object_bounds, variance):
         _, outlier_mask, model = procvect(xdata = x_values[object_mask], 
                                           ydata = data[wavelength,:][object_mask],
                                           variance = variance[wavelength, :][object_mask],
-                                          threshold = 16,
+                                          threshold = 9,
                                           fit_type = "polynomial",
                                           absolute_threshold = False,
                                           kwargs = {'deg' : 1})

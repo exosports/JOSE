@@ -34,7 +34,7 @@ class test_procvect(unittest.TestCase):
         verbose = np.loadtxt(os.path.join(testData_directory, 'test_00', 'verbose.csv'), delimiter=',')
         xvals = np.loadtxt(os.path.join(testData_directory, 'test_00', 'xvals.csv'), delimiter=',')
 
-        results_vector, new_mask, model = jose.procvect(xvals, datav[xvals.astype(int)], varv[xvals.astype(int)], thresh, 'polynomial', False, {'deg' : parm})
+        results_vector, new_mask, model = jose.procvect(xvals, datav[xvals.astype(int)], varv[xvals.astype(int)], thresh**2, 'polynomial', False, {'deg' : parm})
 
         npt.assert_allclose(model(np.array(range(len(bgRow)))), bgRow)
         # don't test changing variance
