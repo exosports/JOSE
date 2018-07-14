@@ -72,7 +72,8 @@ class test_fit_background(unittest.TestCase):
         example1dir = os.path.join(os.path.dirname(__file__), 'testData', 'fitbgData', 'test_01')
         idl_background = np.loadtxt(os.path.join(example1dir, 'bgim.csv'), delimiter=',')
 
-        npt.assert_allclose(background, idl_background)
+        npt.assert_allclose(background, idl_background, rtol=1e-3, atol=0.5)
+
 
 
     def test_flatBackground(self):
