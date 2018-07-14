@@ -1,0 +1,3 @@
+problem vector for background fitting, appears that 0 valued pixels on right side throw off initial algorithm, set up test to cover this.
+
+Data from row 48 or example 1

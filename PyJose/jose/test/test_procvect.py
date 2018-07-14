@@ -34,12 +34,25 @@ class test_procvect(unittest.TestCase):
         verbose = np.loadtxt(os.path.join(testData_directory, 'test_00', 'verbose.csv'), delimiter=',')
         xvals = np.loadtxt(os.path.join(testData_directory, 'test_00', 'xvals.csv'), delimiter=',')
 
-        results_vector, new_mask, model = jose.procvect(xvals, datav[xvals.astype(int)], varv[xvals.astype(int)], thresh**2, 'polynomial', False, {'deg' : parm})
+        results_vector, new_mask, model = jose.procvect(xvals, datav[xvals.astype(int)], varv[xvals.astype(int)], thresh, 'polynomial', False, {'deg' : parm})
 
         npt.assert_allclose(model(np.array(range(len(bgRow)))), bgRow)
         # don't test changing variance
         # npt.assert_allclose(new_variance, maskv_output)
         npt.assert_array_equal(new_mask, maskv_output.astype(bool))
+
+    def test_deadPixelLinear(self):
+        dataDir = os.path.join(testData_directory, 'test_03')
+        data = np.loadtxt(os.path.join(dataDir, 'datav.csv'))
+        variance = np.loadtxt(os.path.join(dataDir, 'varv.csv'))
+        xdata = np.loadtxt(os.path.join(dataDir, 'xvals.csv'))
+        threshold = np.loadtxt(os.path.join(dataDir, 'thresh.csv'))
+
+        fittedData, mask, model = jose.procvect(xdata, data[xdata.astype(int)], variance[xdata.astype(int)], threshold, 'polynomial', False, {'deg' : 1})
+
+        idl_fit = np.loadtxt(os.path.join(dataDir, 'fiteval.csv'))
+
+        npt.assert_allclose(fittedData, idl_fit)
 
     def test_IDLOracle_1_loose(self):
         # very loose equality test

@@ -99,6 +99,7 @@
     <Folder Include="jose\test\testData\procvectData\test_00\" />
     <Folder Include="jose\test\testData\procvectData\test_01\" />
     <Folder Include="jose\test\testData\procvectData\test_02\" />
+    <Folder Include="jose\test\testData\procvectData\test_03\" />
     <Folder Include="jose\test\testData\stdextrData\" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,36 @@
     <Content Include="jose\test\testData\procvectData\test_02\vectnum.csv" />
     <Content Include="jose\test\testData\procvectData\test_02\verbose.csv" />
     <Content Include="jose\test\testData\procvectData\test_02\xvals.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\absthresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\bcrv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\bgRow.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\bgv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\bpct.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\bthresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\coeffv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\crv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\datav.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\errflag.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\extract.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\fiteval.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\func.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\i.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\maskv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\maskv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\multv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\noupdate.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\parm.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\plottype.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\q.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\README" />
+    <Content Include="jose\test\testData\procvectData\test_03\skyvarv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\thresh.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\v0.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\varv.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\varv_output.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\vectnum.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\verbose.csv" />
+    <Content Include="jose\test\testData\procvectData\test_03\xvals.csv" />
     <Content Include="jose\test\testData\stdextrData\dataim.csv" />
     <Content Include="jose\test\testData\stdextrData\stdspec.csv" />
     <Content Include="jose\test\testData\stdextrData\stdvar.csv" />
