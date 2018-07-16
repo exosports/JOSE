@@ -1,6 +1,8 @@
 import numpy as np
 
 def extract(sky_subtracted, revised_variance, profile):
+    '''docstring'''
+    #TODO: implement variance from sky image
     threshold = 25
     mask = np.full(np.shape(sky_subtracted), True) #initialize to all good pixels
     converged = False
