@@ -1,30 +1,32 @@
 import numpy as np
 
-def extract(sky_subtracted, revised_variance, profile):
+def extract(sky_subtracted, revised_variance, profile, object_bounds):
     '''docstring'''
     #TODO: implement variance from sky image
     threshold = 25
     mask = np.full(np.shape(sky_subtracted), True) #initialize to all good pixels
-    converged = False
-    maximum_rejects = 1
-    previous_bad_pixels = np.full(np.shape(sky_subtracted), False)
+    mask[:, 0:object_bounds[0]] = False
+    mask[:, object_bounds[1]:-1] = False
+    spectrum = np.zeros(np.shape(sky_subtracted)[1])
 
-    while not converged:
-        denominator = np.sum(mask * profile * profile / revised_variance, axis=1)
-        spectrum = np.sum(mask * profile * sky_subtracted / revised_variance, axis=1) / denominator
-        
-        SDR = (sky_subtracted - spectrum * profile) / revised_variance
+    for i in range(sky_subtracted.shape[0]):
+        converged = False
+        maximum_rejects = 1
+        previous_bad_pixels = np.full(np.shape(sky_subtracted[i,:]), False)
 
-        bad_pixels = SDR > threshold
+        while not converged:
+            denominator = np.sum(mask[i,:] * profile[i,:] * profile[i,:] / revised_variance[i,:])
+            spectrum_estimate = np.sum(mask[i,:] * profile[i,:] * sky_subtracted[i,:] / revised_variance[i,:]) / denominator
+            
+            residuals = (sky_subtracted[i,:] - spectrum_estimate * profile[i,:])**2 / revised_variance[i,:]
 
-        # flattened indexes of maximum_reject largest outliers
-        largest_SDR = np.argpartition(SDR, SDR.size-maximum_rejects, axis=None)[-maximum_rejects:]
+            bad_pixels = residuals > threshold
 
-        if np.array_equal(bad_pixels, previous_bad_pixels):
-            converged = True
-        else:
-            previous_bad_pixels = np.copy(bad_pixels)
-            mask[largest_SDR // mask.shape[0], largest_SDR % mask.shape[1]] = False
-            mask = np.logical_or(mask, np.logical_not(bad_pixels))
+            if np.array_equal(bad_pixels, previous_bad_pixels):
+                converged = True
+                spectrum[i] = spectrum_estimate
+            else:
+                previous_bad_pixels = np.copy(bad_pixels)
+                mask[i, residuals == residuals[mask[i,:]].max()] = False
 
     return spectrum

@@ -21,6 +21,6 @@ def optimal_extraction(data, variance, rn, Q, object_bounds):
 
     revised_variance = rn**2 + np.abs(standard_spectrum*profile + background) / Q #TODO: make sure broadcasting in correct direction
 
-    optimal_spectrum = extract(sky_subtracted, revised_variance, profile)
+    optimal_spectrum = extract(sky_subtracted, revised_variance, profile, object_bounds)
     
     return optimal_spectrum
