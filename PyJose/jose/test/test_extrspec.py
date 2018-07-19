@@ -22,7 +22,7 @@ class test_extrspec(unittest.TestCase):
 
         idl_spectrum = np.loadtxt(os.path.join(dir, 'optspec.csv'), delimiter=',')
 
-        npt.assert_allclose(spectrum, idl_spectrum, rtol=1e-3, atol=0.5)
+        npt.assert_allclose(spectrum, idl_spectrum, rtol=1e-2, atol=1)
 
 if __name__ == '__main__':
     unittest.main()

@@ -24,7 +24,7 @@ class test_optspecextr(unittest.TestCase):
 
         opspec1 = np.loadtxt(os.path.join(example1dir, 'opspec1.csv'), delimiter=',')
 
-        npt.assert_allclose(optimal_spectrum, opspec1)
+        npt.assert_allclose(optimal_spectrum, opspec1, rtol=0.02, atol=100)
 
 
 

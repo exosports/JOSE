@@ -16,11 +16,11 @@ class test_fitprof(unittest.TestCase):
         data = np.loadtxt(os.path.join(dataDir, 'dataim.csv'), delimiter=',')
         variance = np.loadtxt(os.path.join(dataDir, 'varim.csv'), delimiter=',')
 
-        profile = jose.create_profile(data - sky_background, variance)
+        profile = jose.create_profile(data, variance)
 
         idl_profile = np.loadtxt(os.path.join(dataDir, 'profim.csv'), delimiter=',')
 
-        npt.assert_allclose(profile, idl_profile)
+        npt.assert_allclose(profile, idl_profile, rtol=1e-3, atol=0.005)
 
 
 if __name__ == '__main__':
