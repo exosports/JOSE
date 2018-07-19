@@ -16,7 +16,7 @@ class test_fitprof(unittest.TestCase):
         data = np.loadtxt(os.path.join(dataDir, 'dataim.csv'), delimiter=',')
         variance = np.loadtxt(os.path.join(dataDir, 'varim.csv'), delimiter=',')
 
-        profile = jose.create_profile(data, sky_background, variance)
+        profile = jose.create_profile(data - sky_background, variance)
 
         idl_profile = np.loadtxt(os.path.join(dataDir, 'profim.csv'), delimiter=',')
 
