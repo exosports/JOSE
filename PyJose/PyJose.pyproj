@@ -59,6 +59,9 @@
     <Compile Include="jose\test\test_create_profile.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="jose\test\test_extrspec.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="jose\test\test_fitprof.py">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +97,8 @@
     <Folder Include="jose\test\interactiveTest\" />
     <Folder Include="jose\test\testData\" />
     <Folder Include="jose\test\testData\extractfuncData\" />
+    <Folder Include="jose\test\testData\extrspecData\" />
+    <Folder Include="jose\test\testData\extrspecData\test_00\" />
     <Folder Include="jose\test\testData\fitbgData\" />
     <Folder Include="jose\test\testData\fitprofData\" />
     <Folder Include="jose\test\testData\fitprofData\test_00\" />
@@ -116,6 +121,23 @@
     <Content Include="jose\test\testData\extractfuncData\profv.csv" />
     <Content Include="jose\test\testData\extractfuncData\varv.csv" />
     <Content Include="jose\test\testData\extractfuncData\xvals.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\bgim.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\bpct.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\dataim.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\ethresh.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\gotovect.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\inmask.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\optspec.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\plottype.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\profim.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\Q.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\README" />
+    <Content Include="jose\test\testData\extrspecData\test_00\skyvar.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\v0.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\varim.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\verbose.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\x1.csv" />
+    <Content Include="jose\test\testData\extrspecData\test_00\x2.csv" />
     <Content Include="jose\test\testData\fitbgData\bgdeg.csv" />
     <Content Include="jose\test\testData\fitbgData\bgim.csv" />
     <Content Include="jose\test\testData\fitbgData\bgmask.csv" />
