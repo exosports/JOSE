@@ -7,6 +7,7 @@ log = logging.getLogger(__name__)
 
 def fit_background(data, object_bounds, variance):
     '''docstring'''
+    log.info('Calculating background by linearly interpolating excluding object at ' + str(object_bounds))
 
     # set up mask which excludes object between x1 and x2
     object_mask = np.full(np.shape(data)[0], False)

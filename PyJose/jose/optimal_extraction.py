@@ -11,6 +11,7 @@ log = logging.getLogger(__name__)
 
 def optimal_extraction(data, variance, rn, Q, object_bounds):
     '''docstring'''
+    #TODO: make function wrapper for Extraction object which only returns basic answer, and possibly the object
     background = fit_background(data, object_bounds, variance)
 
     sky_subtracted = data - background
