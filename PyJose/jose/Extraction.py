@@ -1,7 +1,7 @@
 import numpy as np
 
 
-class SpectralData(object):
+class Extraction(object):
     """description of class"""
     pass
 
