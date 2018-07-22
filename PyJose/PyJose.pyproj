@@ -47,7 +47,7 @@
     <Compile Include="jose\optspecextr.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="jose\SpectralData.py">
+    <Compile Include="jose\Extraction.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="jose\stdextr.py">
@@ -113,6 +113,7 @@
     <Folder Include="jose\test\testData\stdextrData\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="jose\config.yaml" />
     <Content Include="jose\test\testData\extractfuncData\coeffv.csv" />
     <Content Include="jose\test\testData\extractfuncData\datav.csv" />
     <Content Include="jose\test\testData\extractfuncData\eval.csv" />
