@@ -9,7 +9,8 @@ log = logging.getLogger('jose')
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
-
+    # object bounds need to be supplied by the user
+    # require output directory
     dataFits = None #get from argparser
 
     # this should deal with all file I/O, make calls to object to get apporpriate data then write it

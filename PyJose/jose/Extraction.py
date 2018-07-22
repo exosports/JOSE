@@ -16,7 +16,8 @@ class Extraction(object):
         log.info("Getting electrons per data number and read noise from FITS file")
         Q = frame1.header.get('EPADU')
         if Q == None:
-            message = 'FITS header lacks EPADU field, modify file or specify in config'
+            #TODO: should this include print statement?
+            message = 'FITS header lacks EPADU field, modify file or specify in config' #TODO: actually use value from config
             log.error(message)
             raise ValueError(message)
 
@@ -31,6 +32,8 @@ class Extraction(object):
 
         log.info("Calculating variance as |data| / EPADU + read_noise**2")
         self.variance = np.abs(dataFits.data) / Q + read_noise**2
+
+        self.background = jose.fit_background(self.dataFits.data, options['object_bounds'], self.variance)
 
 
 
