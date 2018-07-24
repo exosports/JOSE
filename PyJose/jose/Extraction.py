@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 import logging
 
 log = logging.getLogger(__name__)
@@ -34,6 +35,12 @@ class Extraction(object):
         self.variance = np.abs(dataFits.data) / Q + read_noise**2
 
         self.background = jose.fit_background(self.dataFits.data, options['object_bounds'], self.variance)
+
+    def make_spectrum_figure(self):
+        r'''Returns figure and axes object for extracted spectrum'''
+        f, ax = plt.
+
+
 
 
 

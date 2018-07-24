@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>197c698c-396d-4c1d-aa85-a06f7c87bf07</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>jose\test\interactiveTest\findTraceCenter.py</StartupFile>
+    <StartupFile>jose\jose.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
