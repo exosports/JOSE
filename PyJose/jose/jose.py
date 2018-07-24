@@ -34,6 +34,7 @@ def write_figures(extraction, targetDir):
     r'''docstrng'''
     f, ax = extraction.make_spectrum_figure()
     f.savefig(os.path.join(targetDir, 'spectrum.png'))
+    # TODO: output image, fitted profile, other useful stuff, inspired by IDL plottype flags from other code
 
 
 if __name__ == "__main__":
