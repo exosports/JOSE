@@ -32,7 +32,8 @@ def write_output_files(extraction, targetDir):
 
 def write_figures(extraction, targetDir):
     r'''docstrng'''
-    pass
+    f, ax = extraction.make_spectrum_figure()
+    f.save(os.path.join(targetDir, 'spectrum.png'))
 
 
 if __name__ == "__main__":

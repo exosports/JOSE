@@ -38,7 +38,9 @@ class Extraction(object):
 
     def make_spectrum_figure(self):
         r'''Returns figure and axes object for extracted spectrum'''
-        f, ax = plt.
+        f, ax = plt.subplots()
+        ax.plot(self.optimal_spectrum)
+        return f, ax
 
 
 
