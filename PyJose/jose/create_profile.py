@@ -1,6 +1,6 @@
 import numpy as np
 
-from .procvect import procvect
+from procvect import procvect
 
 def create_profile(sky_subtracted, variance):
     f = np.sum(sky_subtracted, axis=1)

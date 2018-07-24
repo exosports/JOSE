@@ -33,19 +33,20 @@ def write_output_files(extraction, targetDir):
 def write_figures(extraction, targetDir):
     r'''docstrng'''
     f, ax = extraction.make_spectrum_figure()
-    f.save(os.path.join(targetDir, 'spectrum.png'))
+    f.savefig(os.path.join(targetDir, 'spectrum.png'))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='')
     # object bounds need to be supplied by the user
     # require output directory
-    dataFits = None #get from argparser
+    dataFits = pyfits.open(os.path.join('images', 'ex1.fits'))[0] #TODO: get from argparser
     baseDir = os.path.join(os.getcwd(), 'outputTests') #TODO: parse from command line
 
     # this should deal with all file I/O, make calls to object to get apporpriate data then write it
     extract = Extraction(dataFits)
-    # extract.calculate_extraction(None)
+    extract.calculate_extraction(
+        options = {'object_bounds' : (240, 270) })
 
     # get output from extract and write to file depending on arguments 
 
