@@ -7,7 +7,7 @@ from astropy.io import fits as pyfits
 
 from Extraction import Extraction
 
-log = logging.getLogger('jose')
+log = logging.getLogger(__name__)
 
 # TODO: should this copy the data?
 def write_output_files(extraction, targetDir):
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     # this should deal with all file I/O, make calls to object to get apporpriate data then write it
     extract = Extraction(dataFits)
     extract.calculate_extraction(
-        options = {'object_bounds' : (240, 270) })
+        options = {'object_bounds' : (240, 270) }) #TODO: inelegant, maybe make static method to create object or function call
 
     # get output from extract and write to file depending on arguments 
 

@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jose\config.yaml" />
+    <Content Include="jose\test\testData\example1.yaml" />
     <Content Include="jose\test\testData\extractfuncData\coeffv.csv" />
     <Content Include="jose\test\testData\extractfuncData\datav.csv" />
     <Content Include="jose\test\testData\extractfuncData\eval.csv" />

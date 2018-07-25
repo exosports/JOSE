@@ -8,7 +8,7 @@ def create_profile(sky_subtracted, variance):
     profile = np.zeros(np.shape(sky_subtracted))
     
     rejection_threshold = 16
-
+    # TODO: other methods of profile fitting
     x_values = np.array(list(range(len(profile_estimate[:,0]))))
     for i in range(np.shape(profile_estimate)[1]):
         profile[:, i], mask, model = procvect(x_values, sky_subtracted[:, i], variance[:, i], 9, "polynomial", False, {'deg' : 3})
