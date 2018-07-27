@@ -1,6 +1,6 @@
 import numpy as np
 import logging
-import argparse
+import configargparse
 import datetime
 import os
 from astropy.io import fits as pyfits
@@ -38,7 +38,17 @@ def write_figures(extraction, targetDir):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='')
+    print(os.getcwd())
+    p = configargparse.ArgParser(default_config_files=[r'./jose/config.yaml'], config_file_parser_class=configargparse.YAMLConfigFileParser )
+    p.add('-c', '--config', required=True, is_config_file=True, help='config file path')
+    p.add('--degree', required=False, help='path to genome file')
+
+    options = p.parse_args()
+
+    print(options)
+
+    
+
     # object bounds need to be supplied by the user
     # require output directory
     dataFits = pyfits.open(os.path.join('images', 'ex1.fits'))[0] #TODO: get from argparser
