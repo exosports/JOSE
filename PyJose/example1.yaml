@@ -1,1 +1,16 @@
-degree: 2
+# Settings for example 1
+object_bounds : [240, 270]
+background_fitting : 
+    method : 'polynomial'
+    sigma_clip : 9
+    method_options : 
+        deg : 1 
+
+profile_fitting :
+    method : 'polynomial'
+    sigma_clip : 16
+    method_options :
+        deg : 3
+
+extraction:
+    sigma_clip_threshold : 25

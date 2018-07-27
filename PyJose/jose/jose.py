@@ -1,6 +1,7 @@
 import numpy as np
 import logging
 import configargparse
+import yaml
 import datetime
 import os
 from astropy.io import fits as pyfits
@@ -47,7 +48,10 @@ if __name__ == "__main__":
 
     print(options)
 
-    
+    with open(options['config'], 'r') as ymlfile:
+        cfg = yaml.load(ymlfile)
+
+    print(cfg)
 
     # object bounds need to be supplied by the user
     # require output directory

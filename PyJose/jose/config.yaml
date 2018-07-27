@@ -1,2 +1,5 @@
 # a comment
 degree: 3
+
+# use if FITS file lacks RDNOISE in header
+# RDNOISE : 4
