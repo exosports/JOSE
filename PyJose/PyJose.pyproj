@@ -114,6 +114,8 @@
     <Folder Include="jose\test\testData\stdextrData\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="example3.yaml" />
+    <Content Include="example2.yaml" />
     <Content Include="example1.yaml" />
     <Content Include="jose\config.yaml" />
     <Content Include="jose\test\testData\example1.yaml" />
