@@ -1,8 +1,8 @@
 import numpy as np
 import logging
-import configargparse
 import yaml
 import datetime
+import argparse
 import os
 from astropy.io import fits as pyfits
 
@@ -39,14 +39,6 @@ def write_figures(extraction, targetDir):
 
 
 if __name__ == "__main__":
-    print(os.getcwd())
-    p = configargparse.ArgParser(default_config_files=[r'./jose/config.yaml'], config_file_parser_class=configargparse.YAMLConfigFileParser )
-    p.add('-c', '--config', required=True, is_config_file=True, help='config file path')
-    p.add('--degree', required=False, help='path to genome file')
-
-    options = p.parse_args()
-
-    print(options)
 
     with open(options['config'], 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
