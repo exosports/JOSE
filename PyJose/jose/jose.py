@@ -2,6 +2,7 @@ import numpy as np
 import logging
 import yaml
 import datetime
+import sys
 import argparse
 import os
 from astropy.io import fits as pyfits
@@ -37,14 +38,34 @@ def write_figures(extraction, targetDir):
     f.savefig(os.path.join(targetDir, 'spectrum.png'))
     # TODO: output image, fitted profile, other useful stuff, inspired by IDL plottype flags from other code
 
+def create_template(directory, filename):
+    r'''Creates template YAML config file in specified directory'''
+    raise NotImplementedError()
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Extract spectral data from FITS image")
+    parser.add_argument('-o' , "--output-dir", help="Directory to output results, defaults to current working directory")
+    configFileGroup = parser.add_mutually_exclusive_group(required=True)
+    configFileGroup.add_argument('-c', "--config", help="Configuration file with extraction options")
+    configFileGroup.add_argument('-r', "--regenerate-config", help="Creates a template config file with the specified name")
+    args = parser.parse_args()
 
-    with open(options['config'], 'r') as ymlfile:
+    #TODO: create process args function to clean up main
+    if args.output_dir == None: # default to cwd
+        output_dir = os.getcwd();
+    else:
+        output_dir = args.output_dir
+
+    if not args.regenerate_config == None: # create standard template file
+        create_template(output_dir, args.regenerate_config)
+        sys.exit()
+
+    # read in config file
+    with open(args.config, 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
 
     print(cfg)
-
+    sys.exit()
     # object bounds need to be supplied by the user
     # require output directory
     dataFits = pyfits.open(os.path.join('images', 'ex1.fits'))[0] #TODO: get from argparser

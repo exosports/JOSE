@@ -6,6 +6,10 @@ background_fitting :
     method_options : 
         deg : 1 
 
+profile_straightening:
+    method : 'gaussian'
+    upsampling : 8
+
 profile_fitting :
     method : 'polynomial'
     sigma_clip : 16
