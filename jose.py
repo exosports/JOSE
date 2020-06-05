@@ -46,12 +46,13 @@ def create_template(directory, filename):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extract spectral data from FITS image")
-    parser.add_argument('-o' , "--output-dir", help="Directory to output results, defaults to current working directory")
+    parser.add_argument('-o' , "--output-dir",
+        help="Directory to output results, defaults to current working directory")
     configFileGroup = parser.add_mutually_exclusive_group(required=True)
     configFileGroup.add_argument('-c', "--config",
-                                 help="Configuration file with extraction options")
+        help="Configuration file with extraction options")
     configFileGroup.add_argument('-r', "--regenerate-config",
-                                 help="Creates a template config file with the specified name")
+        help="Creates a template config file with the specified name")
     args = parser.parse_args()
 
     #TODO: create process args function to clean up main
@@ -71,20 +72,19 @@ if __name__ == "__main__":
     print(cfg)
     # object bounds need to be supplied by the user
     # require output directory
-    dataFits = pyfits.open(os.path.join('images', 'ex1.fits'))[0] #TODO: get from argparser
-    baseDir = os.path.join(os.getcwd(), 'outputTests') #TODO: parse from command line
+    data    = pyfits.open(cfg['data'])[0] 
+    baseDir = os.path.join(os.getcwd(), cfg['outdir']) 
 
-    # this should deal with all file I/O, make calls to object to get apporpriate data then write it
-    extract = Extraction(dataFits)
-    extract.calculate_extraction(
-        options = {'object_bounds' : (240, 270) }) #TODO: inelegant, maybe make static method to create object or function call
+    extract = Extraction(data)
+    extract.calculate_extraction(options = cfg) 
 
     # get output from extract and write to file depending on arguments 
 
     # write images, figures, data, print info to user
-    print('Extraction complete')
+    print('Extraction complete.')
 
-    newDir = os.path.join(baseDir, datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
+    newDir = os.path.join(baseDir,
+                          datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
     os.makedirs(newDir)
 
     write_output_files(extract, newDir)

@@ -15,8 +15,10 @@ def extractfunc(xvals, datav, varv, profv, eval, coeffv):
         log.error('No good pixels in data, returning 0')
         return 0, None
     
-    denominator = np.sum( profv[goodPixels] * profv[goodPixels] / varv[goodPixels]) #avoid recalculation
-    optimalSpectrum = np.sum( profv[goodPixels] * datav[goodPixels] / varv[goodPixels]) / denominator
+    denominator = np.sum( profv[goodPixels] * profv[goodPixels] /
+                          varv[goodPixels]) #avoid recalculation
+    optimalSpectrum = np.sum( profv[goodPixels] * datav[goodPixels] /
+                              varv[goodPixels]) / denominator
     spectrumVariance = np.sum(profv[goodPixels]) / denominator 
 
     return optimalSpectrum, spectrumVariance

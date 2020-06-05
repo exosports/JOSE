@@ -15,10 +15,14 @@ def extract(sky_subtracted, revised_variance, profile, object_bounds):
         previous_bad_pixels = np.full(np.shape(sky_subtracted[i,:]), False)
 
         while not converged:
-            denominator = np.sum(mask[i,:] * profile[i,:] * profile[i,:] / revised_variance[i,:])
-            spectrum_estimate = np.sum(mask[i,:] * profile[i,:] * sky_subtracted[i,:] / revised_variance[i,:]) / denominator
+            denominator = np.sum(mask[i,:] * profile[i,:] * profile[i,:] /
+                                 revised_variance[i,:])
+            spectrum_estimate = np.sum(mask[i,:] * profile[i,:] *
+                                       sky_subtracted[i,:] /
+                                       revised_variance[i,:]) / denominator
             
-            residuals = (sky_subtracted[i,:] - spectrum_estimate * profile[i,:])**2 / revised_variance[i,:]
+            residuals = (sky_subtracted[i,:] - spectrum_estimate *
+                         profile[i,:])**2 / revised_variance[i,:]
 
             bad_pixels = residuals > threshold
 

@@ -8,7 +8,8 @@ log = logging.getLogger(__name__)
 def single_sigma_clip(data, *args):
     pass
 
-def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kwargs):
+def procvect(xdata, ydata, variance, threshold, fit_type,
+             absolute_threshold, kwargs):
     '''Reject only one pixel at a time'''
     converged = False
     mask = np.full(np.shape(xdata), True)
@@ -18,8 +19,10 @@ def procvect(xdata, ydata, variance, threshold, fit_type, absolute_threshold, kw
             x_masked = xdata[mask]
             y_masked = ydata[mask]
             variance_masked = variance[mask]
-            # TODO: I think the weights are messed up, maybe should be sqrt of that
-            coeff = np.polyfit(x_masked, y_masked, **kwargs, w = 1 / np.sqrt(variance_masked))
+            # TODO: I think the weights are messed up,
+            # maybe should be sqrt of that
+            coeff = np.polyfit(x_masked, y_masked, **kwargs,
+                               w = 1 / np.sqrt(variance_masked))
             model = np.poly1d(coeff)
             fitted_values = model(x_masked)
             # check for outliers

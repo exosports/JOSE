@@ -1,4 +1,7 @@
 # Settings for example 1
+data : images/ex1.fits
+outdir : output
+
 object_bounds : [240, 270]
 background_fitting : 
     method : 'polynomial'
