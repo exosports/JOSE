@@ -2,10 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 
-from fit_background import fit_background
-from stdextr import stdextr
-from create_profile import create_profile
-from extract import extract
+from .fit_background import fit_background
+from .stdextr import stdextr
+from .create_profile import create_profile
+from .extract import extract
 
 log = logging.getLogger(__name__)
 
