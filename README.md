@@ -1,4 +1,4 @@
+Joe and John's Optimal Spectrum Extractor
 
-
-### Installation notes
-installing astropy http://www.astropy.org/
+This is a Python conversion of the IDL code with the same
+name. Currently still in development.
