@@ -2,4 +2,4 @@
 __pycache__/
 *.swp
 .ipynb_checkpoints
-PyJose/outputTests
+jose/outputTests
