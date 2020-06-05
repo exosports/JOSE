@@ -6,8 +6,28 @@ from procvect import procvect
 log = logging.getLogger(__name__)
 
 def fit_background(data, object_bounds, variance):
-    '''docstring'''
-    log.info('Calculating background by linearly interpolating excluding object at ' + str(object_bounds))
+    '''Determine the background of the image.
+    
+    Arguments
+    ---------
+    data: array
+        Spectral image array.
+
+    object_bounds: 2-item list
+        Region (in x dimension) excluded from background calculation 
+        (the spectrum)
+
+    variance: array
+        Variance array corresponding to data
+
+    Returns
+    -------
+    background_image: array
+        Background array.
+
+'''
+    log.info('Calculating background by linearly interpolating excluding object at '
+             + str(object_bounds))
 
     # set up mask which excludes object between x1 and x2
     object_mask = np.full(np.shape(data)[0], False)

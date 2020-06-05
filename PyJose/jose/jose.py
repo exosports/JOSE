@@ -48,8 +48,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Extract spectral data from FITS image")
     parser.add_argument('-o' , "--output-dir", help="Directory to output results, defaults to current working directory")
     configFileGroup = parser.add_mutually_exclusive_group(required=True)
-    configFileGroup.add_argument('-c', "--config", help="Configuration file with extraction options")
-    configFileGroup.add_argument('-r', "--regenerate-config", help="Creates a template config file with the specified name")
+    configFileGroup.add_argument('-c', "--config",
+                                 help="Configuration file with extraction options")
+    configFileGroup.add_argument('-r', "--regenerate-config",
+                                 help="Creates a template config file with the specified name")
     args = parser.parse_args()
 
     #TODO: create process args function to clean up main
@@ -67,7 +69,6 @@ if __name__ == "__main__":
         cfg = yaml.load(ymlfile)
 
     print(cfg)
-    sys.exit()
     # object bounds need to be supplied by the user
     # require output directory
     dataFits = pyfits.open(os.path.join('images', 'ex1.fits'))[0] #TODO: get from argparser
