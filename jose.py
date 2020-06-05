@@ -9,7 +9,7 @@ import argparse
 import os
 from astropy.io import fits as pyfits
 
-from Extraction import Extraction
+from jose.Extraction import Extraction
 
 log = logging.getLogger(__name__)
 
