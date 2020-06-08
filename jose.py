@@ -87,8 +87,8 @@ if __name__ == "__main__":
     print('Extraction complete.')
         
     resdir = os.path.join(outputdir,
-                          datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'),
-                          cfg['label'])
+                          datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')+
+                          '-' + cfg['label'])
     os.makedirs(resdir)
 
     write_output_files(extract, resdir)
