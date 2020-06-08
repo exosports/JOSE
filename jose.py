@@ -66,7 +66,7 @@ if __name__ == "__main__":
 
     # read in config file
     with open(args.config, 'r') as ymlfile:
-        cfg = yaml.load(ymlfile)
+        cfg = yaml.load(ymlfile, Loader=yaml.FullLoader)
 
     # object bounds need to be supplied by the user
     # require output directory
