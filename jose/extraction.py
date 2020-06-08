@@ -41,17 +41,21 @@ class Extraction(object):
                  "from FITS file")
         Q = self.header.get('EPADU')
         if Q == None:
-            #TODO: should this include print statement?
-            msg = "FITS file lacks EPADU field. Must specify in cfg."
-            #TODO: actually use value from config
-            log.error(message)
-            raise ValueError(message)
+            try:
+                Q = options['EPADU']
+            except KeyError:
+                msg = "FITS file lacks EPADU field. Must specify in cfg."
+                log.error(msg)
+                raise ValueError(msg)            
 
         raw_read_noise = self.header.get('RDNOISE')
         if raw_read_noise == None:
-            msg = "FITS file lacks RDNOISE field. Must specify in cfg."
-            log.error(message)
-            raise ValueError(message)
+            try:
+                raw_read_noise = options['RDNOISE']
+            except KeyError:               
+                msg = "FITS file lacks RDNOISE field. Must specify in cfg."
+                log.error(msg)
+                raise ValueError(msg)
 
         read_noise = raw_read_noise / Q
 
