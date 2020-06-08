@@ -73,7 +73,10 @@ if __name__ == "__main__":
     # object bounds need to be supplied by the user
     # require output directory
     data    = pyfits.open(cfg['data'])[0] 
-    baseDir = os.path.join(os.getcwd(), cfg['outdir']) 
+    outputdir = os.path.join(os.getcwd(), cfg['outdir'])
+
+    if not os.path.isdir(outputdir):
+        os.makedirs('output')
 
     extract = Extraction(data)
     extract.calculate_extraction(options = cfg) 
@@ -82,11 +85,11 @@ if __name__ == "__main__":
 
     # write images, figures, data, print info to user
     print('Extraction complete.')
-
-    newDir = os.path.join(baseDir,
+        
+    resdir = os.path.join(outputdir,
                           datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
-    os.makedirs(newDir)
+    os.makedirs(resdir)
 
-    write_output_files(extract, newDir)
-    write_figures(extract, newDir)
+    write_output_files(extract, resdir)
+    write_figures(extract, resdir)
 
