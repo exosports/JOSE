@@ -1,13 +1,13 @@
-from .stdextr import stdextr
-from .extract import extract
-from .fit_background import fit_background
-from .extractfunc import extractfunc
-from .optspecextr import optspectextr
-from .polyfunc import polyfunc
-from .procvect import procvect
+from .stdextr import *
+from .extract import *
+from .fit_background import *
+from .extractfunc import *
+from .optspecextr import *
+from .polyfunc import *
+from .procvect import *
 
-from .Extraction import Extraction
+from . import extraction
 
-from .optimal_extraction import optimal_extraction
-from .create_profile import create_profile
-from .find_centers import find_centers
+from .optimal_extraction import *
+from .create_profile import *
+from .find_centers import *

@@ -7,15 +7,15 @@ import datetime
 import sys
 import argparse
 import os
-from astropy.io import fits as pyfits
+import astropy.io.fits as fits
 
-from jose.Extraction import Extraction
+import jose
 
 log = logging.getLogger(__name__)
 
 # TODO: should this copy the data?
-def write_output_files(extraction, targetDir):
-    r'''Writes results of extraction to `targetDir`
+def write_output_files(extraction, resdir):
+    r'''Writes results of extraction to resdir
 
     Parameters
     ----------
@@ -31,8 +31,7 @@ def write_output_files(extraction, targetDir):
     and human readable summary under results.txt.
     '''
     # results.txt
-    with open(os.path.join(targetDir, 'results.txt'), 'w') as results:
-        results.write('test\n') #TODO: make human readable output
+    np.savetxt(os.path.join(resdir, 'spec.txt'), extraction.optimal_spectrum)
 
 def write_figures(extraction, targetDir):
     r'''docstrng'''
@@ -69,17 +68,16 @@ if __name__ == "__main__":
     with open(args.config, 'r') as ymlfile:
         cfg = yaml.load(ymlfile)
 
-    print(cfg)
     # object bounds need to be supplied by the user
     # require output directory
-    data    = pyfits.open(cfg['data'])[0] 
+    hdulist   = fits.open(cfg['data']) 
     outputdir = os.path.join(os.getcwd(), cfg['outdir'])
 
     if not os.path.isdir(outputdir):
         os.makedirs('output')
 
-    extract = Extraction(data)
-    extract.calculate_extraction(options = cfg) 
+    extract = jose.extraction.Extraction(hdulist[0])
+    extract.calculate_extraction(cfg) 
 
     # get output from extract and write to file depending on arguments 
 
@@ -93,4 +91,5 @@ if __name__ == "__main__":
 
     write_output_files(extract, resdir)
     write_figures(extract, resdir)
+    extract.save(os.path.join(resdir, 'extract.obj'))
 

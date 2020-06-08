@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import logging
+import pickle
 
 from .fit_background import fit_background
 from .stdextr import stdextr
@@ -13,11 +14,22 @@ log = logging.getLogger(__name__)
 class Extraction(object):
     """
     Responsible for tracking data from one extraction and 
-    producing appropriate figures and stuff
+    producing appropriate figures
     """
     
-    def __init__(self, dataFits):
-        self.dataFits = dataFits
+    def __init__(self, hdu):
+        """
+        Initialize Extraction object.
+
+        Arguments
+        ---------
+        hdu: astropy HDU object
+            HDU object containing a single data frame and header.
+        """
+        
+        #self.hdu = hdu
+        self.data   = hdu.data
+        self.header = hdu.header
 
     def calculate_extraction(self, options):
         '''
@@ -27,7 +39,7 @@ class Extraction(object):
         
         log.info("Getting electrons per data number and read noise " + 
                  "from FITS file")
-        Q = self.dataFits.header.get('EPADU')
+        Q = self.header.get('EPADU')
         if Q == None:
             #TODO: should this include print statement?
             msg = "FITS file lacks EPADU field. Must specify in cfg."
@@ -35,7 +47,7 @@ class Extraction(object):
             log.error(message)
             raise ValueError(message)
 
-        raw_read_noise = self.dataFits.header.get('RDNOISE')
+        raw_read_noise = self.header.get('RDNOISE')
         if raw_read_noise == None:
             msg = "FITS file lacks RDNOISE field. Must specify in cfg."
             log.error(message)
@@ -44,16 +56,16 @@ class Extraction(object):
         read_noise = raw_read_noise / Q
 
         log.info("Calculating variance as |data| / EPADU + read_noise**2")
-        self.variance = np.abs(self.dataFits.data) / Q + read_noise**2
+        self.variance = np.abs(self.data) / Q + read_noise**2
 
-        self.background = fit_background(self.dataFits.data,
+        self.background = fit_background(self.data,
                                          options['object_bounds'],
                                          self.variance)
 
-        sky_subtracted = self.dataFits.data - self.background
+        sky_subtracted = self.data - self.background
 
         #TODO: implement user-supplied mask
-        standard_spectrum, var = stdextr(self.dataFits.data,
+        standard_spectrum, var = stdextr(self.data,
                                          self.variance,
                                          options['object_bounds']) 
 
@@ -75,7 +87,20 @@ class Extraction(object):
         ax.plot(self.optimal_spectrum)
         return f, ax
 
+    def save(self, fname):
+        """
+        Save object to file.
+        """
+        with open(fname, 'wb') as f:
+            pickle.dump(self, f)
 
+def load(fname):
+    """
+    Load Extraction object from file.
+    """
+    with open(fname, 'rb') as f:
+        extract = pickle.load(f)
 
+    return extract
 
 
