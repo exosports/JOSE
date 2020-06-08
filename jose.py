@@ -76,7 +76,12 @@ if __name__ == "__main__":
     if not os.path.isdir(outputdir):
         os.makedirs('output')
 
-    extract = jose.extraction.Extraction(hdulist[0])
+    try:
+        fnum = cfg['fnum']
+    except KeyError:
+        fnum = 0
+
+    extract = jose.extraction.Extraction(hdulist[fnum])
     extract.calculate_extraction(cfg) 
 
     # get output from extract and write to file depending on arguments 
