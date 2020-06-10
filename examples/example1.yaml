@@ -3,6 +3,8 @@ data : images/ex1.fits
 outdir : output
 label : ex1
 
+rotate : False
+
 object_bounds : [240, 270]
 background_fitting : 
     method : 'polynomial'

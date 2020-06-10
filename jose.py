@@ -81,7 +81,7 @@ if __name__ == "__main__":
     except KeyError:
         fnum = 0
 
-    extract = jose.extraction.Extraction(hdulist[fnum])
+    extract = jose.extraction.Extraction(hdulist[fnum], cfg)
     extract.calculate_extraction(cfg) 
 
     # get output from extract and write to file depending on arguments 

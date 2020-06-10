@@ -3,7 +3,7 @@ import numpy as np
 from .procvect import procvect
 
 def create_profile(sky_subtracted, variance):
-    f = np.sum(sky_subtracted, axis=1)
+    f = np.sum(sky_subtracted, axis=1, keepdims=True)
     profile_estimate = (sky_subtracted) / f
     profile = np.zeros(np.shape(sky_subtracted))
     

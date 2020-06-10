@@ -17,7 +17,7 @@ class Extraction(object):
     producing appropriate figures
     """
     
-    def __init__(self, hdu):
+    def __init__(self, hdu, opt):
         """
         Initialize Extraction object.
 
@@ -25,12 +25,21 @@ class Extraction(object):
         ---------
         hdu: astropy HDU object
             HDU object containing a single data frame and header.
+
+        opt: dict
+            Dictionary of configuration options
         """
         
-        #self.hdu = hdu
+
+        self.opt    = opt
         self.data   = hdu.data
         self.header = hdu.header
 
+        # Rotate image 90 deg clockwise (wavelength ascending left to
+        # right becomes top to bottom)
+        if self.opt['rotate']:
+            self.data = np.rot90(self.data, 3)
+                
     def calculate_extraction(self, options):
         '''
         Modifies the state of this object to calculate the 

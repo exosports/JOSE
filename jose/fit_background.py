@@ -1,5 +1,6 @@
 import numpy as np
 import logging
+import matplotlib.pyplot as plt
 
 from .procvect import procvect
 
@@ -30,7 +31,7 @@ def fit_background(data, object_bounds, variance):
              "excluding object at " + str(object_bounds))
 
     # set up mask which excludes object between x1 and x2
-    object_mask = np.full(np.shape(data)[0], False)
+    object_mask = np.full(np.shape(data)[1], False)
     object_mask[:object_bounds[0]] = True
     object_mask[object_bounds[1]:] = True
 

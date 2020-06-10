@@ -7,7 +7,7 @@ def extract(sky_subtracted, revised_variance, profile, object_bounds):
     mask = np.full(np.shape(sky_subtracted), True) #initialize to all good pixels
     mask[:, 0:object_bounds[0]] = False
     mask[:, object_bounds[1]:-1] = False
-    spectrum = np.zeros(np.shape(sky_subtracted)[1])
+    spectrum = np.zeros(np.shape(sky_subtracted)[0])
 
     for i in range(sky_subtracted.shape[0]):
         converged = False
