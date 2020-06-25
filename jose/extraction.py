@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import logging
 import pickle
+import types
 
 from .fit_background import fit_background
 from .stdextr import stdextr
@@ -35,64 +36,78 @@ class Extraction(object):
         self.data   = hdu.data
         self.header = hdu.header
 
-        # Rotate image 90 deg clockwise (wavelength ascending left to
-        # right becomes top to bottom)
+        # Parse options
         if self.opt['rotate']:
             self.data = np.rot90(self.data, 3)
-                
-    def calculate_extraction(self, options):
-        '''
-        Modifies the state of this object to calculate the 
-        extraction based on the provided data
-        '''
-        
-        log.info("Getting electrons per data number and read noise " + 
-                 "from FITS file")
-        Q = self.header.get('EPADU')
-        if Q == None:
+
+        self.q = self.header.get('EPADU')
+        if type(self.q) == type(None):
             try:
-                Q = options['EPADU']
+                self.q = self.opt['EPADU']
             except KeyError:
                 msg = "FITS file lacks EPADU field. Must specify in cfg."
                 log.error(msg)
-                raise ValueError(msg)            
+                raise ValueError(msg)
 
-        raw_read_noise = self.header.get('RDNOISE')
-        if raw_read_noise == None:
+        self.rdnoise = self.header.get('RDNOISE')
+        if type(self.rdnoise) == type(None):
             try:
-                raw_read_noise = options['RDNOISE']
+                self.rdnoise = self.opt['RDNOISE']
             except KeyError:               
                 msg = "FITS file lacks RDNOISE field. Must specify in cfg."
                 log.error(msg)
                 raise ValueError(msg)
 
-        read_noise = raw_read_noise / Q
+        self.rdnoise /= self.q
+
+        self.x1, self.x2 = self.opt['object_bounds']
+
+        # Set up namespaces for config sections
+        self.bgfit = types.SimpleNamespace()
+        self.bgfit.method  = self.opt['background_fitting']['method']
+        self.bgfit.thresh  = self.opt['background_fitting']['thresh']
+        self.bgfit.methopt = self.opt['background_fitting']['method_options']
+
+        self.proffit = types.SimpleNamespace()
+        self.proffit.method  = self.opt['profile_fitting']['method']
+        self.proffit.thresh  = self.opt['profile_fitting']['thresh']
+        self.proffit.methopt = self.opt['profile_fitting']['method_options']
+
+        self.extract = types.SimpleNamespace()
+        self.extract.thresh = self.opt['extraction']['thresh']
+            
+    def calculate_extraction(self):
+        '''
+        Modifies the state of this object to calculate the 
+        extraction based on the provided data
+        '''         
 
         log.info("Calculating variance as |data| / EPADU + read_noise**2")
-        self.variance = np.abs(self.data) / Q + read_noise**2
+        self.variance = np.abs(self.data) / self.q + self.rdnoise**2
 
-        self.background = fit_background(self.data,
-                                         options['object_bounds'],
-                                         self.variance)
+        self.background = fit_background(self.data, self.x1, self.x2,
+                                         varim=self.variance)
 
         sky_subtracted = self.data - self.background
 
         #TODO: implement user-supplied mask
         standard_spectrum, var = stdextr(self.data,
                                          self.variance,
-                                         options['object_bounds']) 
+                                         self.opt['object_bounds']) 
 
-        self.profile = create_profile(sky_subtracted, self.variance)
+        self.profile = create_profile(sky_subtracted, self.variance,
+                                      self.opt['profile_fitting']['thresh'])
 
         #TODO: make sure broadcasting in correct direction
-        self.revised_variance = read_noise**2 + \
+        self.revised_variance = self.rdnoise**2 + \
                                 np.abs(standard_spectrum*self.profile + \
-                                       self.background) / Q 
+                                       self.background) / self.q
 
         self.optimal_spectrum = extract(sky_subtracted,
                                         self.revised_variance,
                                         self.profile,
-                                        options['object_bounds'])
+                                        self.opt['object_bounds'],
+                                        self.opt['extraction']['thresh'])
     
     def make_spectrum_figure(self):
         r'''Returns figure and axes object for extracted spectrum'''

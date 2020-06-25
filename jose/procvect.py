@@ -19,8 +19,7 @@ def procvect(xdata, ydata, variance, threshold, fit_type,
             x_masked = xdata[mask]
             y_masked = ydata[mask]
             variance_masked = variance[mask]
-            # TODO: I think the weights are messed up,
-            # maybe should be sqrt of that
+
             coeff = np.polyfit(x_masked, y_masked, **kwargs,
                                w = 1 / np.sqrt(variance_masked))
             model = np.poly1d(coeff)
@@ -28,14 +27,14 @@ def procvect(xdata, ydata, variance, threshold, fit_type,
             # check for outliers
 
             # TODO: absolute threshold
-            residuals = (model(xdata) - ydata)**2 / (variance)
+            residuals = (model(xdata) - ydata) / variance**0.5
             outliers = residuals > threshold
 
             if np.any(outliers[mask]): # are there still any unmasked residuals
                 mask[residuals == residuals[mask].max()] = False
             else:
                 converged = True
-     
+                
     return model(xdata), mask, model
 
 

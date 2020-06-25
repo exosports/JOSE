@@ -1,9 +1,9 @@
 import numpy as np
 
-def extract(sky_subtracted, revised_variance, profile, object_bounds):
+def extract(sky_subtracted, revised_variance, profile, object_bounds,
+            sigthresh):
     '''docstring'''
     #TODO: implement variance from sky image
-    threshold = 25
     mask = np.full(np.shape(sky_subtracted), True) #initialize to all good pixels
     mask[:, 0:object_bounds[0]] = False
     mask[:, object_bounds[1]:-1] = False
@@ -24,7 +24,7 @@ def extract(sky_subtracted, revised_variance, profile, object_bounds):
             residuals = (sky_subtracted[i,:] - spectrum_estimate *
                          profile[i,:])**2 / revised_variance[i,:]
 
-            bad_pixels = residuals > threshold
+            bad_pixels = residuals > sigthresh
 
             if np.array_equal(bad_pixels, previous_bad_pixels):
                 converged = True

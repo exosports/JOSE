@@ -82,7 +82,7 @@ if __name__ == "__main__":
         fnum = 0
 
     extract = jose.extraction.Extraction(hdulist[fnum], cfg)
-    extract.calculate_extraction(cfg) 
+    extract.calculate_extraction() 
 
     # get output from extract and write to file depending on arguments 
 
